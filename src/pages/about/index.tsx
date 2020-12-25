@@ -1,5 +1,6 @@
 import Link from "next/link"
-import Layout from "../components/Layout"
+import Layout from "../../components/Layout"
+import styles from "./styles.module.scss"
 
 const AboutPage = () => (
   <Layout title="About | Next.js + TypeScript Example">
@@ -7,7 +8,7 @@ const AboutPage = () => (
     <p>This is the about pagesss</p>
     <p>
       <Link href="/">
-        <a>Go home</a>
+        <a className={styles.red}>Go home</a>
       </Link>
     </p>
   </Layout>
