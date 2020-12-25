@@ -1,0 +1,7 @@
+**/node_modules/**
+**/build/**
+**/lib/**
+craco.config.js
+jest.config.js
+package.json
+README.md
