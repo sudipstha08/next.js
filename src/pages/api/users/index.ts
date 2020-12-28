@@ -14,3 +14,5 @@ const handler = (_req: NextApiRequest, res: NextApiResponse) => {
 }
 
 export default handler
+
+// http://localhost:3000/api/users
