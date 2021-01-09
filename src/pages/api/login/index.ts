@@ -1,7 +1,7 @@
-import { NextApiRequest, NextApiResponse } from 'next'
-import jwt from 'jsonwebtoken'
+import { NextApiRequest, NextApiResponse } from 'next';
+import jwt from 'jsonwebtoken';
 
-const KEY = 'kmkfdskfnsnfkldmsfkdsmfkld'
+const KEY = 'kmkfdskfnsnfkldmsfkdsmfkld';
 
 export default function (req: NextApiRequest, res: NextApiResponse) {
   // res.setHeader("X-custom-header", "app/json")
@@ -9,12 +9,12 @@ export default function (req: NextApiRequest, res: NextApiResponse) {
   // res.json({ num: Math.floor(Math.random() * 10) })
 
   if (!req.body) {
-    res.statusCode = 404
-    res.end('error')
-    return
+    res.statusCode = 404;
+    res.end('error');
+    return;
   }
 
-  const { username, password } = req.body
+  const { username, password } = req.body;
 
   res.json({
     token: jwt.sign(
@@ -24,5 +24,5 @@ export default function (req: NextApiRequest, res: NextApiResponse) {
       },
       KEY,
     ),
-  })
+  });
 }
