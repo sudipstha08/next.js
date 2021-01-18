@@ -1,8 +1,9 @@
 ## Basic Commands
-|  list         | Commands |
+|  Commands         | Description |
 | ------------- | ------------- |
 | yarn start    |               |
 | yarn dev      | run dev server  |
+| yarn install      | install packages  |
 
 
 ## Plugins
