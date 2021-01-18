@@ -46,7 +46,7 @@ const validationSchema = Yup.object({
   channel: Yup.string().required('Required'),
 });
 
-const onSubmit = (values) => {
+const onSubmit = (values: any) => {
   console.log('datas', values);
 };
 

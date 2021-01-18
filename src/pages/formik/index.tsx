@@ -2,6 +2,10 @@
 import styled from 'styled-components';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { ConfigProvider, DatePicker } from 'antd';
+import moment from 'moment';
+import 'moment/locale/ne';
+import locale from 'antd/lib/locale/ne_NP';
 
 const FormWrapper = styled.div`
   & label {
@@ -9,7 +13,6 @@ const FormWrapper = styled.div`
     display: flex;
     margin-bottom: 5px;
   }
-
   & input[type='text'],
   input[type='email'],
   textarea {
@@ -24,33 +27,43 @@ const FormWrapper = styled.div`
     border: 1px solid #ccc;
     border-radius: 4px;
   }
-
   & .form-control {
     margin-bottom: 20px;
   }
-
   & .error {
     color: red;
   }
 `;
 
 const initialValues = {
-  name: 'sss',
+  name: '',
   email: '',
   channel: '',
+  comments: '',
 };
 
 const validationSchema = Yup.object({
   name: Yup.string().required('Required'),
   email: Yup.string().email('Invalid email format').required('Required'),
   channel: Yup.string().required('Required'),
+  comments: Yup.string().required('Required'),
 });
 
-const onSubmit = (values) => {
+const onSubmit = (values: any) => {
   console.log('datas', values);
 };
 
-const FormikCC: React.FC = () => {
+const handleDateChange = (date: any, dateString: string) => {
+  console.log(date, dateString);
+};
+interface IProps {
+  name?: string;
+  email?: string;
+  channel?: string;
+  comments?: string;
+}
+
+const FormikPage: React.FC<IProps> = () => {
   return (
     <FormWrapper>
       <Formik
@@ -71,8 +84,32 @@ const FormikCC: React.FC = () => {
           </div>
           <div className="form-control">
             <label htmlFor="channel">Channel</label>
-            <Field type="channel" id="channel" name="channel" />
+            <Field
+              type="text"
+              id="channel"
+              name="channel"
+              placeholder="channel name"
+            />
             <ErrorMessage name="channel" />
+          </div>
+          <div className="form-control">
+            <label htmlFor="comments">Comments</label>
+            <Field
+              type="text"
+              as="textarea"
+              id="comments"
+              name="comments"
+              placeholder="comments..."
+            />
+            <ErrorMessage name="comments" />
+          </div>
+          <div className="form-control">
+            <ConfigProvider locale={locale}>
+              <DatePicker
+                onChange={handleDateChange}
+                defaultValue={moment('2021-01-18', 'YYYY-MM-DD')}
+              />
+            </ConfigProvider>
           </div>
           <div>
             <button type="submit">Submit</button>
@@ -83,4 +120,4 @@ const FormikCC: React.FC = () => {
   );
 };
 
-export default FormikCC;
+export default FormikPage;
