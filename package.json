@@ -16,12 +16,15 @@
     "axios": "^0.21.1",
     "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-import": "^2.22.1",
+    "formik": "^2.2.6",
     "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
     "next": "latest",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "sass": "^1.30.0",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.1",
+    "yup": "^0.32.8"
   },
   "devDependencies": {
     "@types/node": "^12.12.21",
@@ -39,6 +42,38 @@
     "lint-staged": "^10.5.3",
     "prettier": "^2.2.1",
     "typescript": "4.0"
+  },
+  "babel": {
+    "env": {
+      "development": {
+        "presets": [
+          "next/babel"
+        ],
+        "plugins": [
+          [
+            "styled-components",
+            {
+              "ssr": true,
+              "displayName": true
+            }
+          ]
+        ]
+      },
+      "production": {
+        "presets": [
+          "next/babel"
+        ],
+        "plugins": [
+          [
+            "styled-components",
+            {
+              "ssr": true,
+              "displayName": false
+            }
+          ]
+        ]
+      }
+    }
   },
   "license": "MIT"
 }
