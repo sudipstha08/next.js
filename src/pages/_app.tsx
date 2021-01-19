@@ -1,15 +1,20 @@
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { AppProps } from 'next/app';
-import 'antd/dist/antd.css';
-import '../styles/main.scss';
-
-const queryClient = new QueryClient();
+import Head from "next/head";
+import { AppProps } from "next/app";
+import { Header, Footer } from "../components";
+import "antd/dist/antd.css";
+import "../styles/main.scss";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
-    <QueryClientProvider client={queryClient}>
+    <>
+      <Head>
+        <title>NEXT</title>
+      </Head>
+      <Header />
       <Component {...pageProps} />
-    </QueryClientProvider>
+      <Footer />
+      );
+    </>
   );
 };
 
