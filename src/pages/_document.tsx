@@ -1,4 +1,4 @@
-import Document, { Html, Head, Main, NextScript } from "next/document"
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 // Class for extending Document
 class CustomDocument extends Document {
@@ -13,11 +13,11 @@ class CustomDocument extends Document {
         </body>
         <NextScript />
       </Html>
-    )
+    );
   }
 }
 
-export default CustomDocument
+export default CustomDocument;
 
 // Main file which is responsible for all the rendering.
 // A custom Document is commonly used to augment your
