@@ -1,7 +1,7 @@
-import { NextApiResponse, NextApiRequest } from 'next';
-import jwt from 'jsonwebtoken';
+import { NextApiResponse, NextApiRequest } from "next";
+import jwt from "jsonwebtoken";
 
-const KEY = 'kmkfdskfnsnfkldmsfkdsmfkld';
+const KEY = "kmkfdskfnsnfkldmsfkdsmfkld";
 
 export default function (req: NextApiRequest, res: NextApiResponse) {
   const { token } = req.body;

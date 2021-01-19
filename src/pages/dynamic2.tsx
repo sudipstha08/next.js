@@ -1,4 +1,4 @@
-import { GetStaticProps, GetServerSideProps } from 'next'
+import { GetStaticProps, GetServerSideProps } from "next";
 
 // CALLED ALWAYS ON EVERY PAGE REQUEST. EVEN ON PRODUCTION
 // NO CACHING BENIFIT
@@ -8,9 +8,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: {
       myFavNum: Math.random(),
     },
-  }
-}
+  };
+};
 
 export default function Dynamic2(props) {
-  return <h1>Dynamic number - {props.myFavNum}</h1>
+  return <h1>Dynamic number - {props.myFavNum}</h1>;
 }

@@ -1,7 +1,7 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import jwt from 'jsonwebtoken';
+import { NextApiRequest, NextApiResponse } from "next";
+import jwt from "jsonwebtoken";
 
-const KEY = 'kmkfdskfnsnfkldmsfkdsmfkld';
+const KEY = "kmkfdskfnsnfkldmsfkdsmfkld";
 
 export default function (req: NextApiRequest, res: NextApiResponse) {
   // res.setHeader("X-custom-header", "app/json")
@@ -10,7 +10,7 @@ export default function (req: NextApiRequest, res: NextApiResponse) {
 
   if (!req.body) {
     res.statusCode = 404;
-    res.end('error');
+    res.end("error");
     return;
   }
 
@@ -20,7 +20,7 @@ export default function (req: NextApiRequest, res: NextApiResponse) {
     token: jwt.sign(
       {
         username,
-        admin: username === 'admin' && password === 'admin',
+        admin: username === "admin" && password === "admin",
       },
       KEY,
     ),

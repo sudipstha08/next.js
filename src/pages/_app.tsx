@@ -9,11 +9,15 @@ const App = ({ Component, pageProps }: AppProps) => {
     <>
       <Head>
         <title>NEXT</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Anton&family=Staatliches&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <Header />
       <Component {...pageProps} />
       <Footer />
-      );
     </>
   );
 };

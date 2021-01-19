@@ -1,13 +1,13 @@
-import styled, { ThemeProvider } from 'styled-components';
-import TextField from '../../components/TextFIeld';
+import styled, { ThemeProvider } from "styled-components";
+import TextField from "../../components/TextFIeld";
 
 interface IProps {
   primary?: string;
 }
 
 const theme = {
-  font: 'Calibri',
-  size: '30px',
+  font: "Calibri",
+  size: "30px",
 };
 
 const Wrapper = styled.div`
@@ -18,12 +18,12 @@ const Wrapper = styled.div`
 const Title = styled.p`
   color: green;
   font-size: 20px;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Staatliches", cursive;
 `;
 
 const Button = styled.button`
   background-color: ${(props: IProps) =>
-    props.primary ? '#4caf50' : '#008cba'};
+    props.primary ? "#4caf50" : "#008cba"};
   border: none;
   color: #fff;
   padding: 15px 22px;
@@ -52,8 +52,15 @@ const StyledComponent: React.FC<IProps> = () => {
           text="Hello Types"
           ok={true}
           i={10}
-          person={{ firstName: 'sudip', lastName: 'sth' }}
+          person={{ firstName: "sudip", lastName: "sth" }}
         />
+        <a
+          target="_blank"
+          href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=sudipstha08@gmail.com&body=my-text"
+        >
+          Click here to email
+        </a>
+        <a href="mailto:user@domain.com?Subject=Hello%20User">Inbox me!</a>
       </Wrapper>
     </ThemeProvider>
   );

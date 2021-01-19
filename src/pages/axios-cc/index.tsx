@@ -1,11 +1,11 @@
 /* eslint-disable no-constant-condition */
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import axios, { AxiosRequestConfig } from 'axios';
-import { API } from '../../utils/api';
-import { Button } from '../../components';
+import React, { useState } from "react";
+import styled from "styled-components";
+import axios from "axios";
+import { API } from "../../utils/api";
+import { Button } from "../../components";
 
 const MainContainer = styled.div`
   margin-bottom: 50px;
@@ -60,7 +60,7 @@ const AxiosCC: React.FC = () => {
 
     // SHORT HAND
     axios
-      .get('https://jsonplaceholder.typicode.com/todos', {
+      .get("https://jsonplaceholder.typicode.com/todos", {
         params: {
           _limit: 5,
         },
@@ -71,8 +71,8 @@ const AxiosCC: React.FC = () => {
   // POST
   const handlePost = () => {
     axios
-      .post('https://jsonplaceholder.typicode.com/todos', {
-        title: 'Axios cc',
+      .post("https://jsonplaceholder.typicode.com/todos", {
+        title: "Axios cc",
         completed: false,
       })
       .then((res) => setData(res));
@@ -81,8 +81,8 @@ const AxiosCC: React.FC = () => {
   // PUT updates the entire resource
   const handleUpdate = () => {
     axios
-      .put('https://jsonplaceholder.typicode.com/todos/1', {
-        title: 'Updated Todo',
+      .put("https://jsonplaceholder.typicode.com/todos/1", {
+        title: "Updated Todo",
         completed: true,
       })
       .then((res) => setData(res));
@@ -91,8 +91,8 @@ const AxiosCC: React.FC = () => {
   // PATCH applies a partial update to the resource
   const handlePatch = () => {
     axios
-      .patch('https://jsonplaceholder.typicode.com/todos/1', {
-        title: 'Updated Todo',
+      .patch("https://jsonplaceholder.typicode.com/todos/1", {
+        title: "Updated Todo",
         completed: true,
       })
       .then((res) => setData(res));
@@ -106,7 +106,7 @@ const AxiosCC: React.FC = () => {
 
   const handleDelete = async () => {
     const res = await axios.delete(
-      'https://jsonplaceholder.typicode.com/todos/1',
+      "https://jsonplaceholder.typicode.com/todos/1",
     );
     setData(res);
   };
@@ -116,29 +116,29 @@ const AxiosCC: React.FC = () => {
     try {
       axios
         .all([
-          axios.get('https://jsonplaceholder.typicode.com/todos?_limit=5'),
-          axios.get('https://jsonplaceholder.typicode.com/posts?_limit=5'),
+          axios.get("https://jsonplaceholder.typicode.com/todos?_limit=5"),
+          axios.get("https://jsonplaceholder.typicode.com/posts?_limit=5"),
         ])
         .then(axios.spread((todos, posts) => setData(todos)));
     } catch (e) {
-      console.error('Error', e);
+      console.error("Error", e);
     }
   };
 
   // CUSTOM HEADERS
   const handleCustomHeaders = () => {
-    const TOKEN = 'kfdskjflmmdslfm353mkmk5rwrwwr';
+    const TOKEN = "kfdskjflmmdslfm353mkmk5rwrwwr";
     const config = {
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${TOKEN}`,
       },
     };
     axios
       .post(
-        'https://jsonplaceholder.typicode.com/todos',
+        "https://jsonplaceholder.typicode.com/todos",
         {
-          title: 'Axios cc',
+          title: "Axios cc",
           completed: false,
         },
         config,
@@ -149,10 +149,10 @@ const AxiosCC: React.FC = () => {
   // TRANSFORMING REQUEST AND RESPONSES
   const transformResponse = () => {
     const options = {
-      method: 'post',
-      url: 'https://jsonplaceholder.typicode.com/todos',
+      method: "post",
+      url: "https://jsonplaceholder.typicode.com/todos",
       data: {
-        title: 'Hello World',
+        title: "Hello World",
       },
       transformResponse: axios.defaults.transformResponse.concat((data) => {
         data.title = data.title.toUpperCase();
@@ -167,7 +167,7 @@ const AxiosCC: React.FC = () => {
   const handleErrors = async () => {
     try {
       const res = await axios.get(
-        'https://jsonplaceholder.typicode.com/todoss',
+        "https://jsonplaceholder.typicode.com/todoss",
         {
           params: {
             _limit: 5,
@@ -185,7 +185,7 @@ const AxiosCC: React.FC = () => {
         console.log(e.response.headers);
 
         if (e.response.status === 404) {
-          alert('404: Page Not Found');
+          alert("404: Page Not Found");
         }
       } else if (e.request) {
         // Request was made but no response
@@ -200,7 +200,7 @@ const AxiosCC: React.FC = () => {
   const validateStatus = async () => {
     try {
       const res = await axios.get(
-        'https://jsonplaceholder.typicode.com/todoss',
+        "https://jsonplaceholder.typicode.com/todoss",
         {
           params: {
             _limit: 5,
@@ -221,7 +221,7 @@ const AxiosCC: React.FC = () => {
         console.log(e.response.headers);
 
         if (e.response.status === 404) {
-          alert('404: Page Not Found');
+          alert("404: Page Not Found");
         }
       } else if (e.request) {
         // Request was made but no response
@@ -237,18 +237,18 @@ const AxiosCC: React.FC = () => {
   const cancelToken = () => {
     const source = axios.CancelToken.source();
     axios
-      .get('https://jsonplaceholder.typicode.com/todos', {
+      .get("https://jsonplaceholder.typicode.com/todos", {
         cancelToken: source.token,
       })
       .then((res) => setData(res))
       .catch((thrown) => {
         if (axios.isCancel(thrown)) {
-          console.log('Request cancelled', thrown.message);
+          console.log("Request cancelled", thrown.message);
         }
       });
 
     if (true) {
-      source.cancel('Request cancelled');
+      source.cancel("Request cancelled");
     }
   };
   // AXIOS INSTANCES
@@ -259,7 +259,7 @@ const AxiosCC: React.FC = () => {
   // COMMENTS
   const getComments = async () => {
     try {
-      const res = await API.get('/comments', {
+      const res = await API.get("/comments", {
         params: {
           _limit: 10,
         },
@@ -268,14 +268,14 @@ const AxiosCC: React.FC = () => {
         setData(res);
       }
     } catch (e) {
-      console.error('e', e);
+      console.error("e", e);
     }
   };
 
   // TIMEOUT
   const handleTimeout = () => {
     axios
-      .get('https://jsonplaceholder.typicode.com/todos', {
+      .get("https://jsonplaceholder.typicode.com/todos", {
         params: {
           _limit: 10,
         },
@@ -344,7 +344,7 @@ const AxiosCC: React.FC = () => {
         </Button>
       </ButtonsWrapper>
       {Object.keys(data).length === 0 ? (
-        ''
+        ""
       ) : (
         <Content>
           <div>
