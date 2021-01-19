@@ -1,17 +1,17 @@
-import { Button } from 'antd';
-import styled from 'styled-components';
+import { Button } from "antd";
+import styled from "styled-components";
 
-type ButtonType = 'primary' | 'ghost' | 'dashed' | 'link' | 'text' | 'default';
+type ButtonType = "primary" | "ghost" | "dashed" | "link" | "text" | "default";
 interface ButtonProps {
   block?: boolean;
   danger?: boolean;
   disabled?: boolean;
   ghost?: boolean;
   href?: string;
-  htmlType?: 'button' | 'submit' | 'reset';
+  htmlType?: "button" | "submit" | "reset";
   icon?: any;
   loading?: boolean;
-  size?: 'large' | 'middle' | 'small';
+  size?: "large" | "middle" | "small";
   type?: ButtonType;
   onClick?: any;
   children?: React.ReactNode;

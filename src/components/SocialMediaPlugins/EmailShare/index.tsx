@@ -1,5 +1,5 @@
-import { EmailShareButton } from 'react-share';
-import { ReactNode } from 'react';
+import { EmailShareButton } from "react-share";
+import { ReactNode } from "react";
 
 interface DisabledStyleProps {
   opacity?: number;
@@ -33,7 +33,7 @@ const EmailShare = ({
       subject={subject}
       body={body}
       separator={separator}
-      url={url || ''}
+      url={url || ""}
       disabled={disabled}
       disabledStyle={disabledStyle}
       windowHeight={windowHeight}

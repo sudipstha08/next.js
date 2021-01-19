@@ -1,8 +1,8 @@
-import Link from 'next/link';
-import Layout from '../../components/Layout';
-import styles from './styles.module.scss';
-import { EmailShareButton, FacebookShareButton } from 'react-share';
-import { LineShare, MailTo } from '../../components';
+import Link from "next/link";
+import Layout from "../../components/Layout";
+import styles from "./styles.module.scss";
+import { EmailShareButton, FacebookShareButton } from "react-share";
+import { LineShare, MailTo } from "../../components";
 
 const AboutPage = () => (
   <Layout title="About | Next.js + TypeScript Example">
@@ -35,7 +35,7 @@ const AboutPage = () => (
       url="https://www.npmjs.com/package/angular-social-plugins"
     >
       Facebook Share
-    </FacebookShareButton>{' '}
+    </FacebookShareButton>{" "}
     <EmailShareButton
       subject="hello"
       body="test"
@@ -45,14 +45,19 @@ const AboutPage = () => (
       // mediaplaybackrequiresuseraction="false"
     >
       Email Share
-    </EmailShareButton>{' '}
+    </EmailShareButton>{" "}
     <LineShare
       // quote="Facebook"
       // hashtag="Hello"
       url="https://www.npmjs.com/package/angular-social-plugins"
     >
       Line Share
-    </LineShare>{' '}
+    </LineShare>{" "}
+    <a
+      href={`mailto:piotr@mailtrap.io,john@mailtrap.io,kate@mailtrap.io?subject=Give%20me%20all%20your%20bitcoins&body=Here%20are%20my%20parents'%20credit%20card%20numbers%3A%0D%0A%0D%0ACheers%2C%0D%0AHappy%20Customer`}
+    >
+      I want free Bitcoins
+    </a>
   </Layout>
 );
 

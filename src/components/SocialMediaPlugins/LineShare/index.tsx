@@ -1,5 +1,5 @@
-import { LineShareButton } from 'react-share';
-import { ReactNode } from 'react';
+import { LineShareButton } from "react-share";
+import { ReactNode } from "react";
 
 interface LineProps {
   children?: ReactNode;
@@ -10,7 +10,7 @@ interface LineProps {
 
 const LineShare = ({ children, url, title, disabled }: LineProps) => {
   return (
-    <LineShareButton title={title} url={url || ''} disabled={disabled}>
+    <LineShareButton title={title} url={url || ""} disabled={disabled}>
       {children}
     </LineShareButton>
   );
