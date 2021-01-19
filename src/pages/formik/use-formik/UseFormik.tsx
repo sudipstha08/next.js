@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
-import styled from 'styled-components';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
+import styled from "styled-components";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const FormWrapper = styled.div`
   & label {
@@ -10,8 +10,8 @@ const FormWrapper = styled.div`
     margin-bottom: 5px;
   }
 
-  & input[type='text'],
-  input[type='email'],
+  & input[type="text"],
+  input[type="email"],
   textarea {
     display: block;
     width: 400px;
@@ -35,19 +35,19 @@ const FormWrapper = styled.div`
 `;
 
 const initialValues = {
-  name: 'sss',
-  email: '',
-  channel: '',
-}
+  name: "sss",
+  email: "",
+  channel: "",
+};
 
 const validationSchema = Yup.object({
-  name: Yup.string().required('Required'),
-  email: Yup.string().email('Invalid email format').required('Required'),
-  channel: Yup.string().required('Required'),
+  name: Yup.string().required("Required"),
+  email: Yup.string().email("Invalid email format").required("Required"),
+  channel: Yup.string().required("Required"),
 });
 
 const onSubmit = (values: any) => {
-  console.log('datas', values);
+  console.log("datas", values);
 };
 
 const FormikCC: React.FC = () => {
@@ -97,7 +97,7 @@ const FormikCC: React.FC = () => {
   });
   // console.log('form values', formik.values);
   // console.log('form errors', formik.errors);
-  console.log('visited fields', formik.touched);
+  console.log("visited fields", formik.touched);
   return (
     <FormWrapper>
       <form onSubmit={formik.handleSubmit}>

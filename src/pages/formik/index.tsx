@@ -1,11 +1,11 @@
 /* eslint-disable no-console */
-import styled from 'styled-components';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import { ConfigProvider, DatePicker } from 'antd';
-import moment from 'moment';
-import 'moment/locale/ne';
-import locale from 'antd/lib/locale/ne_NP';
+import styled from "styled-components";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import { ConfigProvider, DatePicker } from "antd";
+import moment from "moment";
+import "moment/locale/ne";
+import locale from "antd/lib/locale/ne_NP";
 
 const FormWrapper = styled.div`
   & label {
@@ -13,8 +13,8 @@ const FormWrapper = styled.div`
     display: flex;
     margin-bottom: 5px;
   }
-  & input[type='text'],
-  input[type='email'],
+  & input[type="text"],
+  input[type="email"],
   textarea {
     display: block;
     width: 400px;
@@ -36,21 +36,21 @@ const FormWrapper = styled.div`
 `;
 
 const initialValues = {
-  name: '',
-  email: '',
-  channel: '',
-  comments: '',
+  name: "",
+  email: "",
+  channel: "",
+  comments: "",
 };
 
 const validationSchema = Yup.object({
-  name: Yup.string().required('Required'),
-  email: Yup.string().email('Invalid email format').required('Required'),
-  channel: Yup.string().required('Required'),
-  comments: Yup.string().required('Required'),
+  name: Yup.string().required("Required"),
+  email: Yup.string().email("Invalid email format").required("Required"),
+  channel: Yup.string().required("Required"),
+  comments: Yup.string().required("Required"),
 });
 
 const onSubmit = (values: any) => {
-  console.log('datas', values);
+  console.log("datas", values);
 };
 
 const handleDateChange = (date: any, dateString: string) => {
@@ -107,7 +107,7 @@ const FormikPage: React.FC<IProps> = () => {
             <ConfigProvider locale={locale}>
               <DatePicker
                 onChange={handleDateChange}
-                defaultValue={moment('2021-01-18', 'YYYY-MM-DD')}
+                defaultValue={moment("2021-01-18", "YYYY-MM-DD")}
               />
             </ConfigProvider>
           </div>

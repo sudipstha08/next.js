@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 const Activities = () => {
   return (
     <>
@@ -9,7 +7,7 @@ const Activities = () => {
       <p>Volleyball</p>
       <p>Cricket</p>
     </>
-  )
-}
+  );
+};
 
-export default Activities
+export default Activities;
