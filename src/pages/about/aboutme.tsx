@@ -1,6 +1,6 @@
-import Link from 'next/link'
-import Layout from '../../components/Layout'
-import styles from './styles.module.scss'
+import Link from 'next/link';
+import Layout from '../../components/Layout';
+import styles from './styles.module.scss';
 
 const AboutMe = () => (
   <Layout title="About | Next.js + TypeScript Example">
@@ -15,6 +15,6 @@ const AboutMe = () => (
       </Link>
     </p>
   </Layout>
-)
+);
 
-export default AboutMe
+export default AboutMe;

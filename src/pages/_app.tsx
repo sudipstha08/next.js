@@ -1,7 +1,8 @@
 import 'antd/dist/antd.css';
 import '../styles/main.scss';
+import { AppProps } from 'next/app';
 
-const App = ({ Component, pageProps }) => {
+const App = ({ Component, pageProps }: AppProps) => {
   return <Component {...pageProps} />;
 };
 
