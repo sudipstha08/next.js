@@ -1,6 +1,5 @@
 import { LineShareButton } from "react-share";
 import { ReactNode } from "react";
-
 interface LineProps {
   children?: ReactNode;
   url?: string;
@@ -17,3 +16,5 @@ const LineShare = ({ children, url, title, disabled }: LineProps) => {
 };
 
 export { LineShare };
+
+// https://dev.to/pmca/how-to-build-a-mobile-web-share-component-with-react-in-under-10-minutes-37jh

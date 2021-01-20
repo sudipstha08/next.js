@@ -1,10 +1,8 @@
 import { EmailShareButton } from "react-share";
 import { ReactNode } from "react";
-
 interface DisabledStyleProps {
   opacity?: number;
 }
-
 interface EmailProps {
   children: ReactNode;
   body?: string;
