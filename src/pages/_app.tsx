@@ -14,6 +14,11 @@ const App = ({ Component, pageProps }: AppProps) => {
           href="https://fonts.googleapis.com/css2?family=Anton&family=Staatliches&display=swap"
           rel="stylesheet"
         />
+        <script
+          src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js"
+          // async
+          // defer
+        ></script>
       </Head>
       <Header />
       <Component {...pageProps} />
