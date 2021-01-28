@@ -7,21 +7,39 @@ import { Header, Footer } from "../components";
 // import * as _ from "styled-components/cssprop";
 // The {} from is important to tell TypeScript it's OK to remove the import from the code --
 // we just want the types. If that import remains you'll get an error.
+import BrowserNotSupported from "../pages/browser-not-supported";
 import "antd/dist/antd.css";
 import "../styles/main.scss";
+import { useRouter } from "next/router";
+const path = require("path");
+
+// GLOBAL AUGUMENTATION
+declare global {
+  interface Document {
+    documentMode?: any;
+  }
+}
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [isIE, setIsIE] = useState(false);
+  console.log("path", path.resolve(__dirname, "/.env.example"))
+  const router = useRouter()
   useEffect(() => {
-    const browser = navigator.userAgent;
-    const isIE = browser.indexOf("MSIE");
-    if (isIE > 0) {
+    // CHECK IF THE BROWSER IS INTERNET EXPLORER
+   
+   // Please note this approach is unreliable since users can modify
+   // the browser user agent string.
+  // const browser = navigator.userAgent;
+  // const isIE = /MSIE|Trident/.test(browser);
+  // Instead, you should use document.documentMode property which is IE specific
+    const isIE = !!window.document.documentMode;
+    console.log('isIE', isIE)
+    if (isIE) {
       setIsIE(true);
+      router.push("/browser-not-supported")
     }
   }, []);
-  return isIE ? (
-    <p>This is not supported</p>
-  ) : (
+  return (
     <>
       <Head>
         <title>NEXT</title>
