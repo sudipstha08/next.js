@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 
@@ -14,17 +15,18 @@ const Button = styled(Link).attrs({
 export default function Search() {
   useEffect(() => {
     const checkUserData = () => {
-      const favCount = getItemFromLocalStorage(FAV_ITEMS_KEY)?.length;
+      const test = localStorage.getItem("user");
     };
     window.addEventListener("storage", checkUserData);
 
     return () => {
       window.removeEventListener("storage", checkUserData);
     };
-  }, [getItemFromLocalStorage(FAV_ITEMS_KEY)]);
+  }, []);
   return (
     <Button gray to="path/to/page">
       Test Console
+      {test}
     </Button>
   );
 }
