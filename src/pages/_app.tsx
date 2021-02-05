@@ -22,21 +22,21 @@ declare global {
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [isIE, setIsIE] = useState(false);
-  console.log("path", path.resolve(__dirname, "/.env.example"))
-  const router = useRouter()
+  console.log("path", path.resolve(__dirname, "/.env.example"));
+  const router = useRouter();
   useEffect(() => {
     // CHECK IF THE BROWSER IS INTERNET EXPLORER
-   
-   // Please note this approach is unreliable since users can modify
-   // the browser user agent string.
-  // const browser = navigator.userAgent;
-  // const isIE = /MSIE|Trident/.test(browser);
-  // Instead, you should use document.documentMode property which is IE specific
+
+    // Please note this approach is unreliable since users can modify
+    // the browser user agent string.
+    // const browser = navigator.userAgent;
+    // const isIE = /MSIE|Trident/.test(browser);
+    // Instead, you should use document.documentMode property which is IE specific
     const isIE = !!window.document.documentMode;
-    console.log('isIE', isIE)
+    console.log("isIE", isIE);
     if (isIE) {
       setIsIE(true);
-      router.push("/browser-not-supported")
+      router.push("/browser-not-supported");
     }
   }, []);
   return (
