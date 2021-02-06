@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { Wrapper } from "./style";
 import { SWAPI_API } from "../../../../utils/api";
 import { AxiosResponse } from "axios";
-import { usePaginatedQuery } from "react-query";
+import { useQuery } from "react-query";
 import moment from "moment";
 import { Message, Loader } from "../../../atom";
 
@@ -16,7 +16,7 @@ const People = () => {
     const response = await SWAPI_API.get<IResponse>("/people");
     return response.data;
   };
-  const { data, status, refetch } = usePaginatedQuery("peoples", fetchPeople, {
+  const { data, status, refetch } = useQuery("peoples", fetchPeople, {
     refetchOnWindowFocus: false,
     staleTime: 2000, // DATA WILL REMAIN FRESH FOR 2SEC
     cacheTime: 10000,
