@@ -1,18 +1,27 @@
-## Basic Commands
-|  Commands         | Description |
-| ------------- | ------------- |
-| yarn start    |               |
-| yarn dev      | run dev server  |
-| yarn install      | install packages  |
+## BASIC COMMANDS
+|      Commands     |   Description   |
+| ----------------- | --------------- |
+| yarn start        |                 |
+| yarn dev          | run dev server  |
+| yarn install      | install packages|
 
 
-## Plugins
+## TECHNOLOGIES USED
+|  Technologies Used   |    Description    |
+| ------------------   | ------------------|
+| Next                 |   SSR             |
+| Context API          |  State management  |
+| React Query          |   Data fetching   |
+
+## PLUGINS
 1. yarn add eslint-plugin-cypress@latest --save-dev
 2. yarn add eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
 
-## References
+## REFERENCES
 1. https://readwriteexercise.com/posts/setting-up-create-react-app-vs-code-eslint-prettier/
 2. https://khalilstemmler.com/blogs/typescript/eslint-for-typescript/
 3. https://nextjs.org/docs/advanced-features/custom-app
+4. https://swapi.dev/
+5. https://react-query.tanstack.com/
 
 
