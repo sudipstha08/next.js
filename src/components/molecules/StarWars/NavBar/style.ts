@@ -16,4 +16,9 @@ export const MainContainer = styled.nav`
       }
     }
   }
+  & .nav--active {
+    span {
+      border: 2px solid #fff !important;
+    }
+  }
 `;

@@ -15,6 +15,7 @@ interface ButtonProps {
   type?: ButtonType;
   onClick?: any;
   children?: React.ReactNode;
+  className?: any;
 }
 
 const StyledButton = styled(Button)`
@@ -34,6 +35,7 @@ const ButtonComponent: React.FC<ButtonProps> = ({
   type,
   onClick,
   children,
+  className,
 }) => {
   return (
     <StyledButton
@@ -48,6 +50,7 @@ const ButtonComponent: React.FC<ButtonProps> = ({
       size={size}
       type={type}
       onClick={onClick}
+      className={className}
     >
       {children}
     </StyledButton>
