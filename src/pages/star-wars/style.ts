@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   width: 100%;
+  min-height: 100vh;
   padding: 0;
   margin: 0 auto;
   background: #222;
@@ -11,7 +12,7 @@ export const Wrapper = styled.div`
     color: #ffff57;
     font-size: 4em;
     letter-spacing: 2px;
-    font-family: "Ubuntu", sans-serif;
+    font-family: "Spicy Rice", cursive;
   }
   section {
     text-align: left;

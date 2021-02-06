@@ -1,17 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import { AppProps } from "next/app";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { useRouter } from "next/router";
+
 import { Header, Footer } from "../components";
 //To prevent TypeScript errors on the css prop on arbitrary elements
 // import {} from "styled-components/cssprop";
 // import * as _ from "styled-components/cssprop";
 // The {} from is important to tell TypeScript it's OK to remove the import from the code --
 // we just want the types. If that import remains you'll get an error.
-import BrowserNotSupported from "../pages/browser-not-supported";
+// import BrowserNotSupported from "../pages/browser-not-supported";
 import "antd/dist/antd.css";
 import "../styles/main.scss";
-import { useRouter } from "next/router";
-const path = require("path");
+
+// const path = require("path");
+const queryClient = new QueryClient();
 
 // GLOBAL AUGUMENTATION
 declare global {
@@ -21,8 +25,8 @@ declare global {
 }
 
 const App = ({ Component, pageProps }: AppProps) => {
-  const [isIE, setIsIE] = useState(false);
-  console.log("path", path.resolve(__dirname, "/.env.example"));
+  // const [isIE, setIsIE] = useState(false);
+  // console.log("path", path.resolve(__dirname, "/.env.example"));
   const router = useRouter();
   useEffect(() => {
     // CHECK IF THE BROWSER IS INTERNET EXPLORER
@@ -33,9 +37,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     // const isIE = /MSIE|Trident/.test(browser);
     // Instead, you should use document.documentMode property which is IE specific
     const isIE = !!window.document.documentMode;
-    console.log("isIE", isIE);
     if (isIE) {
-      setIsIE(true);
       router.push("/browser-not-supported");
     }
   }, []);
@@ -48,6 +50,10 @@ const App = ({ Component, pageProps }: AppProps) => {
           href="https://fonts.googleapis.com/css2?family=Anton&family=Staatliches&display=swap"
           rel="stylesheet"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap"
+          rel="stylesheet"
+        ></link>
         <script
           src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js"
           // async
@@ -55,7 +61,9 @@ const App = ({ Component, pageProps }: AppProps) => {
         ></script>
       </Head>
       <Header />
-      <Component {...pageProps} />
+      <QueryClientProvider client={queryClient}>
+        <Component {...pageProps} />
+      </QueryClientProvider>
       <Footer />
     </>
   );
