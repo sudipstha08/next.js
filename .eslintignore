@@ -5,3 +5,6 @@ craco.config.js
 jest.config.js
 package.json
 README.md
+.env
+LICENSE
+yarn.lock
