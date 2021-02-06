@@ -5,7 +5,7 @@ axios.defaults.headers.common["X-Auth-Token"] =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
 
 export const API = axios.create({
-  baseURL: "https://jsonplaceholder.typicode.com",
+  baseURL: process.env.BASE_URL,
   headers: {
     "Content-Type": "application/json",
     "Accept-Language": "en-US,en;q=0.5",
@@ -16,7 +16,7 @@ export const API = axios.create({
 axios.interceptors.request.use(
   (config: AxiosRequestConfig) => {
     console.log(
-      `${config.method.toUpperCase()} request sent to ${
+      `${config?.method?.toUpperCase()} request sent to ${
         config.url
       } at ${new Date().getTime()}`,
     );

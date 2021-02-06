@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-constant-condition */
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
@@ -154,10 +156,12 @@ const AxiosCC: React.FC = () => {
       data: {
         title: "Hello World",
       },
-      transformResponse: axios.defaults.transformResponse.concat((data) => {
-        data.title = data.title.toUpperCase();
-        return data;
-      }),
+      transformResponse: axios?.defaults?.transformResponse?.concat(
+        (data: any) => {
+          data.title = data.title.toUpperCase();
+          return data;
+        },
+      ),
     };
 
     axios(options).then((res) => setData(res));

@@ -1,5 +1,3 @@
-export { ButtonComponent as Button } from "./Button";
-export { Header } from "./Header";
-export { Footer } from "./Footer";
-export { MailTo } from "./MailTo";
-export * from "./SocialMediaPlugins";
+export * from "./atom";
+export * from "./molecules";
+export * from "./organisms";
