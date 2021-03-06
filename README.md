@@ -7,11 +7,12 @@
 
 
 ## TECHNOLOGIES USED
-|  Technologies Used   |    Description    |
-| ------------------   | ------------------|
-| Next                 |   SSR             |
+|  Technologies Used   |    Description     |
+| ------------------   | ------------------ |
+| Next                 |   SSR              |
 | Context API          |  State management  |
-| React Query          |   Data fetching   |
+| React Query          |   Data fetching    |
+| Firebase             |   Authentication   |
 
 ## PLUGINS
 1. yarn add eslint-plugin-cypress@latest --save-dev
