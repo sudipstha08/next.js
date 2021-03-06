@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import Link from "next/link";
-import { useRouter } from "next/router";
 import { Card, notification } from "antd";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import styled from "styled-components";
-import { useAuth } from "../../context/AuthContext";
-import { TextField, Button } from "../../components";
+import { useAuth } from "../../../context/AuthContext";
+import { TextField, Button } from "../../../components";
 
 const Container = styled.section`
   display: grid;
@@ -26,36 +24,42 @@ const StyledCard = styled(Card)`
   text-align: center;
 `;
 
-const LoginPage = () => {
+const UpdateProfile = () => {
   const [loading, setLoading] = useState(false);
+  const { currentUser, updateEmail, updatePassword } = useAuth();
+
   const [initialValues] = useState({
-    email: "",
+    email: currentUser?.email,
     password: "",
+    passwordConfirmation: "",
   });
 
-  const { login, currentUser } = useAuth();
-  const router = useRouter();
   const validationSchema = Yup.object({
     email: Yup.string()
       .email("Invalid email address")
       .required("Required")
       .max(50, "Maximum 50 characters allowed"),
     password: Yup.string()
-      .required("Required")
       .min(8, "Minimun 8 characters required")
       .max(20, "Maximum 20 characters allowed"),
+    passwordConfirmation: Yup.string().oneOf(
+      [Yup.ref("password"), null],
+      "Passwords didnot match",
+    ),
   });
 
   const handleSubmit = async () => {
     const { email, password } = formik.values;
     try {
-      setLoading(true);
-      await login(email, password);
-      router.push("/");
+      await updateEmail(email);
+      await updatePassword(password);
+      notification.success({
+        message: "Profile updated successfully",
+      });
     } catch (error) {
       setLoading(false);
       notification.error({
-        message: "Failed to sign in. Please try again later",
+        message: "Failed to update profile",
       });
     }
     setLoading(false);
@@ -68,15 +72,11 @@ const LoginPage = () => {
     onSubmit: handleSubmit,
   });
 
-  if (currentUser) {
-    router.push("/");
-  }
-
   return (
     <Container>
       <StyledCard>
         <h2>
-          <strong>Sign In</strong>
+          <strong>Update Profile</strong>
         </h2>
         <form onSubmit={formik.handleSubmit}>
           <TextField
@@ -99,24 +99,31 @@ const LoginPage = () => {
             error={formik.touched.password && formik.errors?.password}
             onBlur={formik.handleBlur}
           />
+          <TextField
+            name="passwordConfirmation"
+            type="password"
+            value={formik.values.passwordConfirmation}
+            prefix={<LockOutlined />}
+            placeholder="Password Confirmation"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={
+              formik.touched.passwordConfirmation &&
+              formik.errors?.passwordConfirmation
+            }
+          />
           <Button
             type="dashed"
             htmlType="submit"
             className="btn--submit"
             loading={loading}
           >
-            Log In
+            Update
           </Button>
         </form>
-        <div>
-          <Link href="/forgot-password">Forgot Password ?</Link>
-        </div>
-        <div>
-          Don&apos;t have an account ? <Link href="/signup">Sign Up</Link>
-        </div>
       </StyledCard>
     </Container>
   );
 };
 
-export default LoginPage;
+export default UpdateProfile;

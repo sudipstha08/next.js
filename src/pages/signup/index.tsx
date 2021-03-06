@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import Link from "next/link";
-import { useRouter } from "next/router";
 import { Card, notification } from "antd";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -26,15 +24,16 @@ const StyledCard = styled(Card)`
   text-align: center;
 `;
 
-const LoginPage = () => {
+const SignUpPage = () => {
   const [loading, setLoading] = useState(false);
   const [initialValues] = useState({
     email: "",
     password: "",
+    passwordConfirmation: "",
   });
 
-  const { login, currentUser } = useAuth();
-  const router = useRouter();
+  const { signup } = useAuth();
+
   const validationSchema = Yup.object({
     email: Yup.string()
       .email("Invalid email address")
@@ -44,18 +43,24 @@ const LoginPage = () => {
       .required("Required")
       .min(8, "Minimun 8 characters required")
       .max(20, "Maximum 20 characters allowed"),
+    passwordConfirmation: Yup.string().oneOf(
+      [Yup.ref("password"), null],
+      "Passwords didnot match",
+    ),
   });
 
   const handleSubmit = async () => {
     const { email, password } = formik.values;
     try {
       setLoading(true);
-      await login(email, password);
-      router.push("/");
+      await signup(email, password);
+      notification.success({
+        message: "Account created successfully",
+      });
     } catch (error) {
       setLoading(false);
       notification.error({
-        message: "Failed to sign in. Please try again later",
+        message: "Failed to create an account",
       });
     }
     setLoading(false);
@@ -68,15 +73,11 @@ const LoginPage = () => {
     onSubmit: handleSubmit,
   });
 
-  if (currentUser) {
-    router.push("/");
-  }
-
   return (
     <Container>
       <StyledCard>
         <h2>
-          <strong>Sign In</strong>
+          <strong>Sign Up</strong>
         </h2>
         <form onSubmit={formik.handleSubmit}>
           <TextField
@@ -99,24 +100,35 @@ const LoginPage = () => {
             error={formik.touched.password && formik.errors?.password}
             onBlur={formik.handleBlur}
           />
+          <TextField
+            name="passwordConfirmation"
+            type="password"
+            value={formik.values.passwordConfirmation}
+            prefix={<LockOutlined />}
+            placeholder="Password Confirmation"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={
+              formik.touched.passwordConfirmation &&
+              formik.errors?.passwordConfirmation
+            }
+          />
           <Button
             type="dashed"
             htmlType="submit"
             className="btn--submit"
             loading={loading}
           >
-            Log In
+            Sign Up
           </Button>
         </form>
         <div>
-          <Link href="/forgot-password">Forgot Password ?</Link>
-        </div>
-        <div>
-          Don&apos;t have an account ? <Link href="/signup">Sign Up</Link>
+          Already have an account ?{" "}
+          <span style={{ color: "#1890ff" }}>Log In</span>
         </div>
       </StyledCard>
     </Container>
   );
 };
 
-export default LoginPage;
+export default SignUpPage;
