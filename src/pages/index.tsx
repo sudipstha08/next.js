@@ -5,6 +5,7 @@ import { useAuth } from "../context/AuthContext";
 import Link from "next/link";
 import { notification } from "antd";
 import Router from "next/router";
+import { PrivateRoute } from "../components/PrivateRoute";
 
 const IndexPage = () => {
   const [username, setUsername] = useState<string>("");
@@ -107,4 +108,4 @@ const IndexPage = () => {
   );
 };
 
-export default IndexPage;
+export default PrivateRoute(IndexPage);

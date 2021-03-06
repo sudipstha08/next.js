@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Card, notification } from "antd";
+import Link from "next/link";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
@@ -57,6 +58,7 @@ const SignUpPage = () => {
       notification.success({
         message: "Account created successfully",
       });
+      formik.resetForm();
     } catch (error) {
       setLoading(false);
       notification.error({
@@ -123,8 +125,7 @@ const SignUpPage = () => {
           </Button>
         </form>
         <div>
-          Already have an account ?{" "}
-          <span style={{ color: "#1890ff" }}>Log In</span>
+          Already have an account ? <Link href="/login">Log In</Link>
         </div>
       </StyledCard>
     </Container>
