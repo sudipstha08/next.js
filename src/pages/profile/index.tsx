@@ -8,7 +8,6 @@ const ApexCharts = dynamic(
 const Profile = () => {
   return (
     <div>
-      
       <ApexCharts />
     </div>
   );

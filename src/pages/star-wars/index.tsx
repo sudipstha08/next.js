@@ -4,7 +4,7 @@ import { NavBar, Planets, People } from "../../components";
 import { Wrapper } from "./style";
 
 const StarWarsPage: React.FC = () => {
-  const [page, setPage] = useState("planets" as any);
+  const [page, setPage] = useState("planets" as string);
 
   return (
     <Wrapper>

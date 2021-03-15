@@ -12,7 +12,6 @@ const AboutPage = () => {
   useEffect(() => {
     LineIt.loadButton();
   }, []);
-
   useEffect(() => {
     fetchData();
   }, []);

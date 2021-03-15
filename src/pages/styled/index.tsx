@@ -1,5 +1,14 @@
 import styled, { ThemeProvider } from "styled-components";
 import TextField from "../../components/TextFIeld";
+import dynamic from "next/dynamic";
+
+const ReactDraggable = dynamic(
+  () =>
+    import("../../components/molecules/ReactDraggable").then(
+      (mod) => mod.ReactDraggable,
+    ),
+  { ssr: false },
+);
 
 interface IProps {
   primary?: string;
@@ -61,6 +70,7 @@ const StyledComponent: React.FC<IProps> = () => {
           Click here to email
         </a>
         <a href="mailto:user@domain.com?Subject=Hello%20User">Inbox me!</a>
+        <ReactDraggable />
       </Wrapper>
     </ThemeProvider>
   );
