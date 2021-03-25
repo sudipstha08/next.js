@@ -2,13 +2,22 @@ import Router from "next/router";
 import React from "react";
 import { useAuth } from "../context/AuthContext";
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
-  const { currentUser } = useAuth();
+const PrivateRoute = (Component: React.ReactNode) => {
+  const Auth = (props: any) => {
+    const { currentUser } = useAuth();
 
-  if (currentUser) {
-    return <Component {...rest} />;
+    if (!currentUser) {
+      return Router.push("/login");
+    }
+
+    return <Component {...props} />;
+  };
+
+  if (Component?.getInitialProps) {
+    Auth.getInitialProps = Component?.getInitialProps;
   }
-  Router.push("/login");
+  return Auth;
+  // Router.push("/login");
 };
 
 export { PrivateRoute };

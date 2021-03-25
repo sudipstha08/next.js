@@ -3,7 +3,6 @@ import Head from "next/head";
 import { AppProps } from "next/app";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { useRouter } from "next/router";
-import { Header, Footer } from "../components";
 import { AuthProvider } from "../context/AuthContext";
 //To prevent TypeScript errors on the css prop on arbitrary elements
 // import {} from "styled-components/cssprop";
@@ -60,13 +59,11 @@ const App = ({ Component, pageProps }: AppProps) => {
           // defer
         ></script>
       </Head>
-      <Header />
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
           <Component {...pageProps} />
         </AuthProvider>
       </QueryClientProvider>
-      <Footer />
     </>
   );
 };

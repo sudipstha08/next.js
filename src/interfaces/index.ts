@@ -8,3 +8,9 @@ export type User = {
   id: number;
   name: string;
 };
+
+export interface IProfile {
+  name?: string;
+  username: string;
+  getAge: (username: string) => void;
+}
