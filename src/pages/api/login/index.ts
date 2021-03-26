@@ -1,3 +1,7 @@
+// api directory is used fot setting up routes that
+// is applicable only on server. It won't increase the client side
+// JS bundle thats need to be sent to the network
+
 import { NextApiRequest, NextApiResponse } from "next";
 import jwt from "jsonwebtoken";
 
