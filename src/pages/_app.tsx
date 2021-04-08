@@ -14,6 +14,8 @@ import "antd/dist/antd.css";
 import "../styles/main.scss";
 
 // const path = require("path");
+// Initialize query client outside a component to prevent reinitialization
+// everytime the component renders
 const queryClient = new QueryClient();
 
 // GLOBAL AUGUMENTATION

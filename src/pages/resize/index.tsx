@@ -7,11 +7,29 @@ const Wrapper = styled.section`
   display: grid;
   place-items: center;
   height: 80vh;
+  & .react-resizable {
+    & .box {
+      display: block;
+      z-index: 999 !important;
+    }
+  }
+
   & .hover-handles .react-resizable-handle {
-    display: none;
+    /* display: none; */
   }
   & .hover-handles:hover .react-resizable-handle {
     display: block;
+  }
+  & .react-resizable-handle-se {
+    height: 20px;
+    width: 20px;
+    /* bottom: 5px;
+    right: 5px; */
+    cursor: resize;
+  }
+  & .react-resizable-handle {
+    background-image: url("/double-arrow.svg");
+    z-index: 1;
   }
 `;
 
@@ -40,6 +58,7 @@ const ResizablePage = () => {
         lockAspectRatio={true}
         minConstraints={[60, 60]}
         maxConstraints={[200, 200]}
+        axis="both"
       >
         <div
           className="box"
