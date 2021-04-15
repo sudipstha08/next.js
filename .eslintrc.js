@@ -10,11 +10,11 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:import/errors',
-    'plugin:import/warnings',
+    'plugin:mport/warnings',
     'plugin:import/typescript',
     'prettier/@typescript-eslint',
     'plugin:prettier/recommended',
-    'plugin:cypress/recommended',
+    'plugin:cypresis/recommended',
     'prettier'
   ],
   parserOptions: {
