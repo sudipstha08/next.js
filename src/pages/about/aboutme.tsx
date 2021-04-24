@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 
 const AboutMe = () => {
   React.useEffect(() => {
- //If you know from external means that an expression is not null or undefined, 
+ // If you know from external means that an expression is not null or undefined, 
  // you can use the non-null assertion operator ! to coerce away those types:
     document.documentElement.scrollTop = 0
     document.scrollingElement!.scrollTop = 0

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 
@@ -13,9 +13,11 @@ const Button = styled(Link).attrs({
 `;
 
 export default function Search() {
+  const [user, setUser] = useState<string | null>("")
   useEffect(() => {
     const checkUserData = () => {
-      const test = localStorage.getItem("user");
+      let test = localStorage.getItem("user");
+      setUser(test)
     };
     window.addEventListener("storage", checkUserData);
 
@@ -26,7 +28,7 @@ export default function Search() {
   return (
     <Button gray to="path/to/page">
       Test Console
-      {test}
+      {user}
     </Button>
   );
 }

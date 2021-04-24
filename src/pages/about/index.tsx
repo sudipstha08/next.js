@@ -10,7 +10,7 @@ import axios from "axios";
 const AboutPage = () => {
   const [shareCount, setShareCount] = useState(0);
   useEffect(() => {
-    LineIt.loadButton();
+    LineIt?.loadButton();
   }, []);
   useEffect(() => {
     fetchData();

@@ -24,3 +24,6 @@ export default CustomDocument;
 // application's <html> and <body> tags.
 // It is rendered only on the server
 // It is not a component but an actual document which is being rendered
+
+// FOR STYLED COMPONENT
+//https://dev.to/rsanchezp/next-js-and-styled-components-style-loading-issue-3i68
