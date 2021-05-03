@@ -1,7 +1,7 @@
 ## BASIC COMMANDS
 |      Commands     |   Description   |
 | ----------------- | --------------- |
-| yarn start        |                 |
+| yarn start        |  Run app        |
 | yarn dev          | run dev server  |
 | yarn install      | install packages|
 

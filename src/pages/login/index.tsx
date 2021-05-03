@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Card, notification } from "antd";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import axios from "axios"
 import styled from "styled-components";
 import { useAuth } from "../../context/AuthContext";
-import { TextField, Button } from "../../components";
+import { TextField, Button, RecaptchaComponent } from "../../components";
+
 
 const Container = styled.section`
   display: grid;
@@ -32,7 +35,7 @@ const LoginPage = () => {
     email: "",
     password: "",
   });
-
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const { login, currentUser } = useAuth();
   const router = useRouter();
   const validationSchema = Yup.object({
@@ -61,11 +64,34 @@ const LoginPage = () => {
     setLoading(false);
   };
 
+ 
+
+  const onFinishHandler = useCallback(async () => {
+    try {
+      const token = await executeRecaptcha("SignIn");
+      console.log("tok", token)
+      const recaptchaData = await axios.post(`http://localhost:8080/verify-recaptcha`, {
+        response: token,
+      });
+    
+      if (
+        recaptchaData &&
+        recaptchaData.data &&
+        recaptchaData.data.score > 0.5
+      ) {
+         handleSubmit()
+        
+      }
+    } catch (error) {
+        console.log(error)
+    }
+  }, [initialValues.email, initialValues.password]);
+
   const formik = useFormik({
     initialValues: initialValues,
     enableReinitialize: true,
     validationSchema: validationSchema,
-    onSubmit: handleSubmit,
+    onSubmit: onFinishHandler,
   });
 
   if (currentUser) {
@@ -119,4 +145,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default RecaptchaComponent(LoginPage);
