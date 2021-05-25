@@ -1,17 +1,16 @@
 ## BASIC COMMANDS
-|      Commands     |   Description   |
-| ----------------- | --------------- |
-| yarn dev          | run dev server  |
-| yarn install      | install packages|
-
+|     commands    |  description     |
+|-----------------|------------------|
+| yarn dev        | run dev server   |
+| yarn install    | install packages |
 
 ## TECH STACKS
-|  Techs               |    description     |
-| ------------------   | ------------------ |
-| Next                 |   SSR              |
-| Context API          |  State management  |
-| React Query          |   Data fetching    |
-| Firebase             |   Authentication   |
+|  techs               |   description          |
+| ---------------------|------------------------|
+| next                 |  server side rendering |
+| context api          |  state management      |
+| react query          |  sata fetching         |
+| firebase             |  authentication        |
 
 ## PLUGINS
 1. yarn add eslint-plugin-cypress@latest --save-dev
@@ -23,5 +22,9 @@
 3. https://nextjs.org/docs/advanced-features/custom-app
 4. https://swapi.dev/
 5. https://react-query.tanstack.com/
+
+## Page optimization
+1. Use defer for scripts
+2. 
 
 
