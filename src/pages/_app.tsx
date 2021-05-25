@@ -57,8 +57,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         ></link>
         <script
           src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js"
-          // async
-          // defer
+          defer
         ></script>
       </Head>
       <QueryClientProvider client={queryClient}>

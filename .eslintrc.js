@@ -10,7 +10,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:import/errors',
-    'plugin:mport/warnings',
+    'plugin:import/warnings',
     'plugin:import/typescript',
     'prettier/@typescript-eslint',
     'plugin:prettier/recommended',
