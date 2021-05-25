@@ -1,13 +1,12 @@
 ## BASIC COMMANDS
 |      Commands     |   Description   |
 | ----------------- | --------------- |
-| yarn start        |                 |
 | yarn dev          | run dev server  |
 | yarn install      | install packages|
 
 
-## TECHNOLOGIES USED
-|  Technologies Used   |    Description     |
+## TECH STACKS
+|  Techs               |    description     |
 | ------------------   | ------------------ |
 | Next                 |   SSR              |
 | Context API          |  State management  |
