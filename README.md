@@ -1,17 +1,16 @@
 ## BASIC COMMANDS
-|      commands     |   description   |
-| ----------------- | --------------- |
-| yarn dev          | run dev server  |
-| yarn install      | install packages|
-
+|     commands    |  description     |
+|-----------------|------------------|
+| yarn dev        | run dev server   |
+| yarn install    | install packages |
 
 ## TECH STACKS
-|  techs               |    description          |
-| ---------------------| ------------------------|
-| next                 |   server side rendering |
-| context api          |  state management       |
-| react query          |   sata fetching         |
-| firebase             |   authentication        |
+|  techs               |   description          |
+| ---------------------|------------------------|
+| next                 |  server side rendering |
+| context api          |  state management      |
+| react query          |  sata fetching         |
+| firebase             |  authentication        |
 
 ## PLUGINS
 1. yarn add eslint-plugin-cypress@latest --save-dev
