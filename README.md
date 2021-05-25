@@ -23,4 +23,8 @@
 4. https://swapi.dev/
 5. https://react-query.tanstack.com/
 
+## Page optimization
+1. Use defer for scripts
+2. 
+
 
