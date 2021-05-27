@@ -21,6 +21,7 @@ const Container = styled.section`
     }
   }
 `;
+
 const StyledCard = styled(Card)`
   width: 350px;
   text-align: center;
@@ -32,9 +33,9 @@ const LoginPage = () => {
     email: "",
     password: "",
   });
-
   const { login, currentUser } = useAuth();
   const router = useRouter();
+
   const validationSchema = Yup.object({
     email: Yup.string()
       .email("Invalid email address")

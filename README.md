@@ -9,7 +9,7 @@
 | ---------------------|------------------------|
 | next                 |  server side rendering |
 | context api          |  state management      |
-| react query          |  sata fetching         |
+| react query          |  data fetching         |
 | firebase             |  authentication        |
 
 ## PLUGINS

@@ -164,7 +164,7 @@ const AxiosCC: React.FC = () => {
       ),
     };
 
-    axios(options).then((res) => setData(res));
+    axios(options as any).then((res) => setData(res));
   };
 
   // ERROR HANDLING

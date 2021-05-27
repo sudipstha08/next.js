@@ -1,5 +1,11 @@
-// CUSTOM NOT FOUND PAGE
+/**
+ * CUSTOM NOT FOUND PAGE
+ **/
 
-export default () => {
-  return <h1>Custom 404 Not found page</h1>;
+import Error from "next/error";
+
+const ErrorPage = () => {
+  return <Error statusCode={404} />;
 };
+
+export default ErrorPage;

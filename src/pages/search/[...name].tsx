@@ -15,7 +15,7 @@ const Button = styled(Link).attrs({
 export default function Search() {
   useEffect(() => {
     const checkUserData = () => {
-      const test = localStorage.getItem("user");
+      localStorage.getItem("user");
     };
     window.addEventListener("storage", checkUserData);
 
@@ -23,15 +23,10 @@ export default function Search() {
       window.removeEventListener("storage", checkUserData);
     };
   }, []);
-  return (
-    <Button gray to="path/to/page">
-      Test Console
-      {test}
-    </Button>
-  );
+  return <Button to="path/to/page">Test Console</Button>;
 }
 
-// /search/1/2/3/4/5/6
+// /search /1/2/3/4/5/6
 // CATCH ALL ROUTES ^
 
 // OPTIONAL CATCH ALL
