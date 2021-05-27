@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 interface Person {
   firstName: string;
   lastName: string;
@@ -17,8 +15,6 @@ interface Props {
 }
 
 const TextField: React.FC<Props> = ({ text }) => {
-  const [count, setCount] = useState<number | null>(5);
-  // setCount(null);
   return (
     <div>
       <button type="button">{text}</button>

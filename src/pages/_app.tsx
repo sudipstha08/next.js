@@ -4,6 +4,7 @@ import Head from "next/head";
 import { AppProps } from "next/app";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { useRouter } from "next/router";
+import "antd/dist/antd.css";
 import { AuthProvider } from "../context/AuthContext";
 import { isIE } from "../utils/isIE";
 //To prevent TypeScript errors on the css prop on arbitrary elements
@@ -11,7 +12,6 @@ import { isIE } from "../utils/isIE";
 // import * as _ from "styled-components/cssprop";
 // The {} from is important to tell TypeScript it's OK to remove the import from the code --
 // we just want the types. If that import remains you'll get an error.
-import "antd/dist/antd.css";
 import "../styles/main.scss";
 
 const queryClient = new QueryClient();

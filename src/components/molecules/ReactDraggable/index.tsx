@@ -2,8 +2,8 @@ import React, { useState } from "react";
 // import Draggable from "react-draggable";
 import GridLayout from "react-grid-layout";
 import { List, Avatar } from "antd";
-import "react-grid-layout/css/styles.css";
 import styled from "styled-components";
+import "react-grid-layout/css/styles.css";
 
 const Wrapper = styled.div`
   & .list--item {
@@ -33,9 +33,8 @@ const ReactDraggable = () => {
         rowHeight={20}
         width={1200}
         compactType="vertical"
-        items={3}
+        // items="3"
         onLayoutChange={handleLayoutChange}
-        onDrag={() => console.log("heloo drag")}
       >
         <div key="a">
           <List.Item className="list--item">
