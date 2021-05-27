@@ -5,6 +5,7 @@ import { AppProps } from "next/app";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { useRouter } from "next/router";
 import { AuthProvider } from "../context/AuthContext";
+import { isIE } from "../utils/isIE";
 //To prevent TypeScript errors on the css prop on arbitrary elements
 // import {} from "styled-components/cssprop";
 // import * as _ from "styled-components/cssprop";
@@ -12,7 +13,6 @@ import { AuthProvider } from "../context/AuthContext";
 // we just want the types. If that import remains you'll get an error.
 import "antd/dist/antd.css";
 import "../styles/main.scss";
-import { isIE } from "../utils/isIE";
 
 const queryClient = new QueryClient();
 
@@ -26,7 +26,7 @@ declare global {
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
   useEffect(() => {
-    if (isIE) {
+    if (isIE()) {
       router.push("/browser-not-supported");
     }
   }, []);

@@ -20,6 +20,7 @@ const Container = styled.section`
     }
   }
 `;
+
 const StyledCard = styled(Card)`
   width: 350px;
   text-align: center;

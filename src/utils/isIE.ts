@@ -5,7 +5,12 @@
 // const browser = navigator.userAgent;
 // const isIE = /MSIE|Trident/.test(browser);
 // Instead, you should use document.documentMode property which is IE specific
-const isIE = !!window.document.documentMode;
+const isIE = () => {
+  if (window) {
+    return !!window?.document?.documentMode;
+  }
+  return null;
+};
 
 export { isIE };
 
