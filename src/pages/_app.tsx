@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import "antd/dist/antd.css";
 import { AuthProvider } from "../context/AuthContext";
 import { isIE } from "../utils/isIE";
+import { GlobalStyles } from "../styles/global-styles";
 //To prevent TypeScript errors on the css prop on arbitrary elements
 // import {} from "styled-components/cssprop";
 // import * as _ from "styled-components/cssprop";
@@ -48,6 +49,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           defer
         ></script>
       </Head>
+      <GlobalStyles />
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
           <Component {...pageProps} />

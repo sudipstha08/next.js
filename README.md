@@ -6,15 +6,11 @@
 
 ## TECH STACKS
 |  techs               |   description          |
-| ---------------------|------------------------|
+|----------------------|------------------------|
 | next                 |  server side rendering |
 | context api          |  state management      |
 | react query          |  data fetching         |
 | firebase             |  authentication        |
-
-## PLUGINS
-1. yarn add eslint-plugin-cypress@latest --save-dev
-2. yarn add eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
 
 ## REFERENCES
 1. https://readwriteexercise.com/posts/setting-up-create-react-app-vs-code-eslint-prettier/
@@ -25,6 +21,6 @@
 
 ## Page optimization
 1. Use defer for scripts
-2. 
+2. Minify scripts and css
 
 
