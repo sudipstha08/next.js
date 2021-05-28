@@ -1,7 +1,6 @@
 /**
  * Custom Error Page
  */
-
 function Error({ statusCode }: any) {
   return (
     <p>
