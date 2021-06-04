@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@firebase/auth-types": "^0.10.2",
+    "@stripe/react-stripe-js": "^1.4.1",
+    "@stripe/stripe-js": "^1.15.0",
     "@types/jsonwebtoken": "^8.5.0",
     "@zeit/next-css": "^1.0.1",
     "antd": "^4.10.0",
