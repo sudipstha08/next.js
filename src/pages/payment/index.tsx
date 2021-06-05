@@ -4,7 +4,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { CheckOutForm } from "../../components";
 import { Wrapper } from "./style";
 
-const promise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
+const promise = loadStripe(process.env.NEXT_PUBLIC_PUBLISHABLE_KEY || "");
 
 const PaymentPage = () => {
   return (

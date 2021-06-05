@@ -4,6 +4,7 @@ export const Wrapper = styled.section`
   display: grid;
   place-items: center;
   height: 100vh;
+
   form {
     width: 30vw;
     align-self: center;

@@ -28,7 +28,7 @@ const AuthProvider = ({ children }: IProps) => {
       setCurrentUser(user);
       setLoading(false);
     });
-    return unsubscribe;
+    return () => unsubscribe;
   }, []);
 
   const signup = (email: string, password: string) => {

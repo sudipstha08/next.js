@@ -30,14 +30,14 @@ const CheckOutForm = () => {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    window
-      .fetch("/create-payment-intent", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
-      })
+    fetch("http://localhost:5000/stripe", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_PUBLISHABLE_KEY}`,
+      },
+      body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
+    })
       .then((res) => {
         return res.json();
       })
@@ -52,10 +52,10 @@ const CheckOutForm = () => {
     setDisabled(event.empty);
     setError(event.error ? event.error.message : "");
   };
-  const handleSubmit = async (ev) => {
-    ev.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setProcessing(true);
-    const payload = await stripe!.confirmCardPayment(clientSecret, {
+    const payload = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
         card: elements!.getElement(CardElement),
       },
