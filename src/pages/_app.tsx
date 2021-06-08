@@ -26,18 +26,24 @@ declare global {
   }
 }
 
-Sentry.init({
-  dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
-  // Alternatively, use `process.env.npm_package_version` for a dynamic release version
-  // if your build tool supports it.
-  release: "next.js@1.0.1",
-  integrations: [new Integrations.BrowserTracing()],
-  environment: `next-js-${process.env.NODE_ENV}`,
-  // Set tracesSampleRate to 1.0 to capture 100%
-  // of transactions for performance monitoring.
-  // We recommend adjusting this value in production
-  tracesSampleRate: 1.0,
-});
+if (process.env.NODE_ENV === "production") {
+  Sentry.init({
+    dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
+    // Alternatively, use `process.env.npm_package_version` for a dynamic release version
+    // if your build tool supports it.
+    release: "next.js@1.0.1",
+    integrations: [new Integrations.BrowserTracing()],
+    environment: `next-js-${process.env.NODE_ENV}`,
+    // Set tracesSampleRate to 1.0 to capture 100%
+    // of transactions for performance monitoring.
+    // We recommend adjusting this value in production
+    tracesSampleRate: 1.0,
+  });
+
+  Sentry.configureScope(function (scope) {
+    scope.setLevel(Sentry.Severity.Warning);
+  });
+}
 
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();

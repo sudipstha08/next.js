@@ -59,7 +59,10 @@ const LoginPage = () => {
       notification.error({
         message: "Failed to sign in. Please try again later",
       });
-      Sentry.captureException("Error: ", error);
+      Sentry.withScope(function (scope) {
+        scope.setLevel(Sentry.Severity.Error);
+        Sentry.captureException("Error: ", error);
+      });
     }
     setLoading(false);
   };
