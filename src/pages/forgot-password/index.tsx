@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Card, notification } from "antd";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import * as Sentry from "@sentry/browser";
 import { UserOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 import { useAuth } from "../../context/AuthContext";
@@ -51,6 +52,7 @@ const ForgotPassword = () => {
       });
     } catch (error) {
       setLoading(false);
+      Sentry.captureMessage("Error: ", error);
       notification.error({
         message: "Failed to reset password",
       });
