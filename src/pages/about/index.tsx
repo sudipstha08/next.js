@@ -9,9 +9,11 @@ import axios from "axios";
 
 const AboutPage = () => {
   const [shareCount, setShareCount] = useState(0);
+
   useEffect(() => {
-    LineIt.loadButton();
+    LineIt?.loadButton();
   }, []);
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -20,9 +22,11 @@ const AboutPage = () => {
     const res = await axios.get(
       "https://api.line.me/social-plugin/metrics?url=https://line.me/en",
     );
-    console.log("res", res);
-    setShareCount(res.data.share);
+    if (res && res.data) {
+      setShareCount(res.data.share);
+    }
   };
+
   return (
     <Layout title="About | Next.js + TypeScript Example">
       <h1>About</h1>

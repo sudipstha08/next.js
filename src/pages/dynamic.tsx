@@ -3,7 +3,7 @@ import path from "path";
 const fs = require("fs");
 
 // executes on server before default func
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   const txt = fs.readFileSync(
     path.join(process.cwd(), "public/robots.txt"),
     "utf8",
@@ -17,6 +17,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 // EXECUTION BOTH ON SERVER & CLIENT
-export default function Dynamic(props) {
+export default function Dynamic(props: any) {
   return <h1>Dynamic Number - {props.myFavNum}</h1>;
 }

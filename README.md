@@ -1,21 +1,16 @@
 ## BASIC COMMANDS
-|      Commands     |   Description   |
-| ----------------- | --------------- |
-| yarn dev          | run dev server  |
-| yarn install      | install packages|
-
+|     commands    |  description     |
+|-----------------|------------------|
+| yarn dev        | run dev server   |
+| yarn install    | install packages |
 
 ## TECH STACKS
-|  Techs               |    description     |
-| ------------------   | ------------------ |
-| Next                 |   SSR              |
-| Context API          |  State management  |
-| React Query          |   Data fetching    |
-| Firebase             |   Authentication   |
-
-## PLUGINS
-1. yarn add eslint-plugin-cypress@latest --save-dev
-2. yarn add eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
+|  techs               |   description          |
+|----------------------|------------------------|
+| next                 |  server side rendering |
+| context api          |  state management      |
+| react query          |  data fetching         |
+| firebase             |  authentication        |
 
 ## REFERENCES
 1. https://readwriteexercise.com/posts/setting-up-create-react-app-vs-code-eslint-prettier/
@@ -24,4 +19,41 @@
 4. https://swapi.dev/
 5. https://react-query.tanstack.com/
 
+## Page optimization
+1. Use defer for scripts
+2. Minify scripts and css
+
+// "babel": {
+  //   "env": {
+  //     "development": {
+  //       "presets": [
+  //         "next/babel"
+  //       ],
+  //       "plugins": [
+  //         [
+  //           "styled-components",
+  //           {
+  //             "ssr": true,
+  //             "displayName": true
+  //           }
+  //         ]
+  //       ]
+  //     },
+  //     "production": {
+  //       "presets": [
+  //         "next/babel"
+  //       ],
+  //       "plugins": [
+  //         [
+  //           "styled-components",
+  //           {
+  //             "ssr": true,
+  //             "displayName": false
+  //           }
+  //         ]
+  //       ]
+  //     }
+  //   }
+  // },
+  // "license": "MIT"
 

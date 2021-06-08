@@ -6,6 +6,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import * as Sentry from "@sentry/browser";
 import { API } from "../../utils/api";
 import { Button } from "../../components";
 
@@ -123,6 +124,7 @@ const AxiosCC: React.FC = () => {
         ])
         .then(axios.spread((todos, posts) => setData(todos)));
     } catch (e) {
+      Sentry.captureMessage("Something went wrong");
       console.error("Error", e);
     }
   };
@@ -164,7 +166,7 @@ const AxiosCC: React.FC = () => {
       ),
     };
 
-    axios(options).then((res) => setData(res));
+    axios(options as any).then((res) => setData(res));
   };
 
   // ERROR HANDLING
@@ -187,7 +189,7 @@ const AxiosCC: React.FC = () => {
         console.log(e.response.data);
         console.log(e.response.status);
         console.log(e.response.headers);
-
+        Sentry.captureException("Something went wrong", e);
         if (e.response.status === 404) {
           alert("404: Page Not Found");
         }
@@ -196,6 +198,7 @@ const AxiosCC: React.FC = () => {
         console.error(e.request);
       } else {
         console.error(e.message);
+        Sentry.captureException("Something went wrong", e);
       }
     }
   };
@@ -223,6 +226,7 @@ const AxiosCC: React.FC = () => {
         console.log(e.response.data);
         console.log(e.response.status);
         console.log(e.response.headers);
+        Sentry.captureException("Something went wrong", e);
 
         if (e.response.status === 404) {
           alert("404: Page Not Found");
@@ -233,6 +237,7 @@ const AxiosCC: React.FC = () => {
         console.error(e.request);
       } else {
         console.error(e.message);
+        Sentry.captureException("Something went wrong", e);
       }
     }
   };

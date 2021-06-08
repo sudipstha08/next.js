@@ -6,6 +6,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import styled from "styled-components";
+import * as Sentry from "@sentry/browser";
 import { useAuth } from "../../context/AuthContext";
 import { TextField, Button } from "../../components";
 
@@ -21,6 +22,7 @@ const Container = styled.section`
     }
   }
 `;
+
 const StyledCard = styled(Card)`
   width: 350px;
   text-align: center;
@@ -32,9 +34,9 @@ const LoginPage = () => {
     email: "",
     password: "",
   });
-
   const { login, currentUser } = useAuth();
   const router = useRouter();
+
   const validationSchema = Yup.object({
     email: Yup.string()
       .email("Invalid email address")
@@ -57,6 +59,7 @@ const LoginPage = () => {
       notification.error({
         message: "Failed to sign in. Please try again later",
       });
+      Sentry.captureException("Error: ", error);
     }
     setLoading(false);
   };
