@@ -5,6 +5,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import styled from "styled-components";
+import * as Sentry from "@sentry/browser";
 import { useAuth } from "../../context/AuthContext";
 import { TextField, Button } from "../../components";
 
@@ -62,6 +63,7 @@ const SignUpPage = () => {
       formik.resetForm();
     } catch (error) {
       setLoading(false);
+      Sentry.captureException("Error occured", error);
       notification.error({
         message: "Failed to create an account",
       });

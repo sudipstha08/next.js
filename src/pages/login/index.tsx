@@ -6,6 +6,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import styled from "styled-components";
+import * as Sentry from "@sentry/browser";
 import { useAuth } from "../../context/AuthContext";
 import { TextField, Button } from "../../components";
 
@@ -58,6 +59,7 @@ const LoginPage = () => {
       notification.error({
         message: "Failed to sign in. Please try again later",
       });
+      Sentry.captureException("Error: ", error);
     }
     setLoading(false);
   };

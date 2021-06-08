@@ -4,9 +4,11 @@ import Head from "next/head";
 import { AppProps } from "next/app";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { useRouter } from "next/router";
-import "antd/dist/antd.css";
+import * as Sentry from "@sentry/browser";
+import { Integrations } from "@sentry/tracing";
 import { AuthProvider } from "../context/AuthContext";
 import { isIE } from "../utils/isIE";
+import "antd/dist/antd.css";
 import { GlobalStyles } from "../styles/global-styles";
 //To prevent TypeScript errors on the css prop on arbitrary elements
 // import {} from "styled-components/cssprop";
@@ -23,6 +25,19 @@ declare global {
     documentMode?: any;
   }
 }
+
+Sentry.init({
+  dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
+  // Alternatively, use `process.env.npm_package_version` for a dynamic release version
+  // if your build tool supports it.
+  release: "next.js@1.0.1",
+  integrations: [new Integrations.BrowserTracing()],
+  environment: `next-js-${process.env.NODE_ENV}`,
+  // Set tracesSampleRate to 1.0 to capture 100%
+  // of transactions for performance monitoring.
+  // We recommend adjusting this value in production
+  tracesSampleRate: 1.0,
+});
 
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
