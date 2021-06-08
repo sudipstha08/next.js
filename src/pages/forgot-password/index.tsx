@@ -52,7 +52,7 @@ const ForgotPassword = () => {
       });
     } catch (error) {
       setLoading(false);
-      Sentry.captureMessage("Error: ", error);
+      Sentry.captureException("Error: ", error);
       notification.error({
         message: "Failed to reset password",
       });

@@ -63,7 +63,7 @@ const SignUpPage = () => {
       formik.resetForm();
     } catch (error) {
       setLoading(false);
-      Sentry.captureMessage("Error occured", error);
+      Sentry.captureException("Error occured", error);
       notification.error({
         message: "Failed to create an account",
       });

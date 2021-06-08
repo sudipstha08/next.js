@@ -189,7 +189,7 @@ const AxiosCC: React.FC = () => {
         console.log(e.response.data);
         console.log(e.response.status);
         console.log(e.response.headers);
-        Sentry.captureMessage("Something went wrong", e);
+        Sentry.captureException("Something went wrong", e);
         if (e.response.status === 404) {
           alert("404: Page Not Found");
         }
@@ -198,7 +198,7 @@ const AxiosCC: React.FC = () => {
         console.error(e.request);
       } else {
         console.error(e.message);
-        Sentry.captureMessage("Something went wrong", e);
+        Sentry.captureException("Something went wrong", e);
       }
     }
   };
@@ -226,7 +226,7 @@ const AxiosCC: React.FC = () => {
         console.log(e.response.data);
         console.log(e.response.status);
         console.log(e.response.headers);
-        Sentry.captureMessage("Something went wrong", e);
+        Sentry.captureException("Something went wrong", e);
 
         if (e.response.status === 404) {
           alert("404: Page Not Found");
@@ -237,7 +237,7 @@ const AxiosCC: React.FC = () => {
         console.error(e.request);
       } else {
         console.error(e.message);
-        Sentry.captureMessage("Something went wrong", e);
+        Sentry.captureException("Something went wrong", e);
       }
     }
   };

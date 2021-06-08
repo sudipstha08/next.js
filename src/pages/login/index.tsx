@@ -59,7 +59,7 @@ const LoginPage = () => {
       notification.error({
         message: "Failed to sign in. Please try again later",
       });
-      Sentry.captureMessage("Error: ", error);
+      Sentry.captureException("Error: ", error);
     }
     setLoading(false);
   };
