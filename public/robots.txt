@@ -1,1 +1,8 @@
-My fav no is 8
+# Specify allowed crawlers (e.g Googlebot, Slurp, Yandex)
+User-agent: *
+# Specify which pages the above-mentioned engine should crawl
+Allow: /
+# Specify which pages the above-mentioned engine should not crawl
+Disallow: /search
+# Specify how often should crawlers perform searches for new/updated # pages on your domain (in seconds)
+Crawl-delay: 1
