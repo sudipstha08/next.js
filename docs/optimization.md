@@ -80,4 +80,4 @@ The `reportWebVitals` function will be triggered when the final values of any of
 ## --------
 - When your site uses server-side rendering, you can return all of the information to the browser in its entirety. This is important because the search engine crawls the page at that moment. If information is not there and your client is still trying to process JS, as well as get data from APIs, the information will be loaded on to the page after the crawl takes place. Even one second of client-side rendering can cost you on-page SEO value.
 
-<img src="https://github.com/sudipstha08/next.js/blob/main/src/assets/images/optimization.png" width="200" />
+<img src="https://github.com/sudipstha08/next.js/blob/main/src/assets/images/optimization.png" width="600" />
