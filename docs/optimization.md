@@ -1,6 +1,6 @@
 ## OPTIMIZATION
 
-- Avoid css `@import`
+- Avoid css `@import` </br>
   The main problem with using CSS @import is that it severely adds to a page’s loading time, which gives the user a worse experience of the page, which in turn affects the page’s ranking with various search engines like Google. In a roundabout way, it negatively impacts the page’s Search Engine Optimisation.
 
   Essentially, with CSS `@import` the browser has to download and parse each file in order. It cannot download the `CSS` files in parallel. This means that the person visiting your web page has to wait for their browser to load every imported file separately, rather than having those files being able to load synchronously. 
@@ -14,19 +14,19 @@
 
 - Minify `css` and `js`
  
-- `Page titles` 
+- `Page titles` </br>
   `Search engines` like Google use your <title> tag to understand what your page is about and serve that content to its users. Make sure your <title> tag is less than 160 characters, unique to the page, and click worthy.
   ```html
   <title>Unique page title</title>
   ```
 
-- Minimizing poor user experience `UX`  
+- Minimizing poor user experience `UX`  </br>
   Google’s latest algorithm updates reveal that user engagement metrics like dwell time--how long someone stays on your website from the Google search engine results page--are being used for rankings. If users are staying longer on your site compared to your competitors, you will see higher rankings.
 
 - Using the right `keywords`
   The core of SEO still depends on the usage of relevant keywords.
 
-- Meta Tags `meta`
+- Meta Tags `meta` </br>
   A meta tag basically tells the search engines what the content of that specific page is, what exactly that page is about, and how the search engine should show it.
   In Next.js, such attributes should be specified in ./pages/_document.tsx 
 ```JSX
@@ -56,11 +56,12 @@
   <meta property="og:image:alt" content={imageAlt} />                                 
   <meta property="og:locale" content="en_CA" />
   /* Twitter */
-  <meta name="twitter:card" content="summary_large_image" />                                  <meta name="twitter:description" content={description} />                                  <meta name="twitter:image" content={image} />                                 
+  <meta name="twitter:card" content="summary" />                                   
+  <meta name="twitter:description" content={description} />                                  <meta name="twitter:image" content={image} />                                 
   <meta  name="twitter:image:alt" content={imageAlt} />
   ```
 
-- ReportWebVitals
+- ReportWebVitals </br>
    You can use Next.js to measure some metrics such as `FCP` or `LCP` (Largest Contentful       Paint) All you have to do is create a custom App component and define a function called reportWebVitals:
 ```JSX
  //pages/_app.js
@@ -70,7 +71,7 @@
 ```
 The `reportWebVitals` function will be triggered when the final values of any of the metrics have finished on the page
 
-- HTTPS over HTTP
+- HTTPS over HTTP </br>
   In August 2014, Google declared HTTPS as a ranking signal. The Hypertext Transfer Protocol Secure (HTTPS) gives your users an extra layer of protection when they share information with you.
 ## There are two main categories of SEO
 
@@ -80,11 +81,11 @@ The `reportWebVitals` function will be triggered when the final values of any of
   includes creating backlinks to your site or creating a social media presence which Next.js can not help you with.
 
 ## 
-- Enable Crawlers
+- Enable Crawlers </br>
   it is important to make sure that search engines’ crawlers are able to access your website. One of the most widely used ways to do so is with the robots.txt. Through this file, owners of a website can specify which crawlers are permitted to look for and index which pages.
   This file should sit in the root directory of your website. In Next.js, the ./public folder It is important to note that although most crawlers will follow the instruction given in this file, it does not prevent them from crawling the pages if they would want to. If you wish to keep certain pages private, you should consider password-protecting them.
 
-- Create Sitemap
+- Create Sitemap </br>
   A  `sitemap` is a file that essentially contains a list of all of the pages on your website. Google provides a comprehensive overview of it in their guide. In order to generate a sitemap for our Next.js website, we need to consider what types of routes we have (static, dynamic). We also need to decide how often do we want to update it or which events should trigger the update. Once generated in .xml format, we need to compress it and store it in the root directory of the website (./public folder for Next.js app
 
 ## 
