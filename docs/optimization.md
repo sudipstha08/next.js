@@ -1,6 +1,6 @@
 ## OPTIMIZATION
 
-- Avoid css `@import` </br>
+- <h2>Avoid css `@import` </h2></br>
   The main problem with using CSS @import is that it severely adds to a page’s loading time, which gives the user a worse experience of the page, which in turn affects the page’s ranking with various search engines like Google. In a roundabout way, it negatively impacts the page’s Search Engine Optimisation.
 
   Essentially, with CSS `@import` the browser has to download and parse each file in order. It cannot download the `CSS` files in parallel. This means that the person visiting your web page has to wait for their browser to load every imported file separately, rather than having those files being able to load synchronously. 
