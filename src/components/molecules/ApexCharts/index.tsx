@@ -114,8 +114,8 @@ const ApexChart: React.FC<GraphProps> = () => {
   return (
     <Wrapper>
       <Chart
-        options={chartOptions.options}
-        series={chartOptions.series}
+        options={chartOptions?.options}
+        series={chartOptions?.series}
         type="radar"
         width={500}
       />
@@ -123,4 +123,4 @@ const ApexChart: React.FC<GraphProps> = () => {
   );
 };
 
-export default ApexChart;
+export { ApexChart };
