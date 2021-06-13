@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 import React, { useState, useEffect } from "react";
-import { SWAPI_API } from "../../../../../utils/api";
+import { SWAPI_API } from "../../../../utils/api";
 import { AxiosResponse } from "axios";
 import { useQuery } from "react-query";
 import { Wrapper } from "./style";

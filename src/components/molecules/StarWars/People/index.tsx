@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import React, { useEffect } from "react";
 import { Wrapper } from "./style";
-import { SWAPI_API } from "../../../../../utils/api";
+import { SWAPI_API } from "../../../../utils/api";
 import { AxiosResponse } from "axios";
 import { useQuery } from "react-query";
 import moment from "moment";

@@ -1,5 +1,7 @@
+/* eslint-disable no-console */
 import React, { useState, useEffect } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { message } from "antd";
 
 const cardStyle = {
   style: {
@@ -43,6 +45,10 @@ const CheckOutForm = () => {
       })
       .then((data) => {
         setClientSecret(data.clientSecret);
+      })
+      .catch((err) => {
+        message.error(err ? err.message : "Something went wrong");
+        console.error("Stripe Error: ", err.message);
       });
   }, []);
 
@@ -62,11 +68,17 @@ const CheckOutForm = () => {
     });
     if (payload.error) {
       setError(`Payment failed ${payload.error.message}`);
+      message.error(
+        payload?.error ? payload.error.message : "Something went wrong",
+      );
       setProcessing(false);
     } else {
       setError(null);
       setProcessing(false);
       setSucceeded(true);
+      message.error(
+        payload?.error ? payload.error.message : "Payment successful",
+      );
     }
   };
   return (
@@ -85,13 +97,11 @@ const CheckOutForm = () => {
           )}
         </span>
       </button>
-      {/* Show any error that happens when processing the payment */}
       {error && (
         <div className="card-error" role="alert">
           {error}
         </div>
       )}
-      {/* Show a success message upon completion */}
       <p className={succeeded ? "result-message" : "result-message hidden"}>
         Payment succeeded, see the result in your
         <a href={`https://dashboard.stripe.com/test/payments`}>

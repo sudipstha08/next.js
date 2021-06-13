@@ -1,12 +1,12 @@
 import { useState } from "react";
-import Layout from "../context/components/Layout";
+import Layout from "../components/Layout";
 import jwt from "jsonwebtoken";
 import { useAuth } from "../context/AuthContext";
 import Link from "next/link";
 import { notification } from "antd";
 import Router from "next/router";
 import * as Sentry from "@sentry/browser";
-import { PrivateRoute } from "../context/components/PrivateRoute";
+import { PrivateRoute } from "../components/PrivateRoute";
 
 const IndexPage = () => {
   const [username, setUsername] = useState<string>("");
