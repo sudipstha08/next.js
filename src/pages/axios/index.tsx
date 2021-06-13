@@ -8,7 +8,7 @@ import styled from "styled-components";
 import axios from "axios";
 import * as Sentry from "@sentry/browser";
 import { API } from "../../utils/api";
-import { Button } from "../../components";
+import { Button } from "../../context/components";
 
 const MainContainer = styled.div`
   margin-bottom: 50px;

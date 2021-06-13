@@ -1,11 +1,11 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import styled from "styled-components";
-import { Footer } from "../../components";
+import { Footer } from "../../context/components";
 
 const ApexCharts = dynamic(
   () =>
-    import("../../components/molecules/ApexCharts/index").then(
+    import("../../context/components/molecules/ApexCharts/index").then(
       (mod) => mod.ApexChart as any,
     ),
   { loading: () => <p>Loading Chart ...</p>, ssr: false },

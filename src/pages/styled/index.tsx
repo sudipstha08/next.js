@@ -1,10 +1,10 @@
 import styled, { ThemeProvider } from "styled-components";
-import TextField from "../../components/TextFIeld";
+import TextField from "../../context/components/TextFIeld";
 import dynamic from "next/dynamic";
 
 const ReactDraggable = dynamic(
   () =>
-    import("../../components/molecules/ReactDraggable").then(
+    import("../../context/components/molecules/ReactDraggable").then(
       (mod) => mod.ReactDraggable,
     ),
   { ssr: false },

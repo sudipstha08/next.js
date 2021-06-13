@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Layout from "../../components/Layout";
+import Layout from "../../context/components/Layout";
 import styles from "./styles.module.scss";
 
 const AboutMe = () => (
