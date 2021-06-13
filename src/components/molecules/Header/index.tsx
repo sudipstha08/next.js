@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
+import { useEffect } from "react";
 
 const Wrapper = styled.header`
   display: flex;
@@ -24,8 +25,30 @@ const Wrapper = styled.header`
 `;
 
 const Header: React.FC = () => {
+  useEffect(() => {
+    let lastScrollTop = 0;
+    const header = document.getElementById("header");
+    header!.style.transition = "all .6s";
+
+    const handleScroll = () => {
+      const scrollTopPos =
+        window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTopPos > lastScrollTop) {
+        // DOWNWARD SCROLL
+        header!.style.top = "-65px";
+      } else {
+        // UPWARD SCROLL
+        header!.style.top = "0";
+      }
+      // FOR MOBILE OR NEGATIVE SCROLLING
+      lastScrollTop = scrollTopPos <= 0 ? 0 : scrollTopPos;
+    };
+    document.addEventListener("scroll", handleScroll, false);
+    return () => document.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <Wrapper>
+    <Wrapper id="header">
       <div>
         <img src="/icons/jwt.svg" alt="logo" width="100" />
       </div>

@@ -69,6 +69,11 @@ const App = ({ Component, pageProps }: AppProps) => {
           src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js"
           defer
         ></script>
+        <script
+          // async
+          custom-element="amp-fx-collection"
+          src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"
+        ></script>
       </Head>
       <GlobalStyles />
       <QueryClientProvider client={queryClient}>
