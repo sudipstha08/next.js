@@ -17,7 +17,7 @@ import { GlobalStyles } from "../styles/global-styles";
 // we just want the types. If that import remains you'll get an error.
 import "../styles/main.scss";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({ defaultOptions: {} });
 
 // GLOBAL AUGUMENTATION
 declare global {
