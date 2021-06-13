@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Head from "next/head";
+import { Header } from "./molecules/Header";
 
 type Props = {
   children?: React.ReactNode;
@@ -14,7 +15,8 @@ const Layout = ({ children, title = "This is the default title" }: Props) => (
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-    <header>
+    <Header />
+    <div style={{ marginTop: 100, padding: 50 }}>
       <nav>
         <Link href="/">
           <a>Home</a>
@@ -29,9 +31,9 @@ const Layout = ({ children, title = "This is the default title" }: Props) => (
         </Link>{" "}
         | <a href="/api/users">Users API</a>
       </nav>
-    </header>
+    </div>
     {children}
-    <footer>
+    <footer style={{ position: "fixed", bottom: 0, width: "100%" }}>
       <hr />
       <span>I&rsquo;m here to stay (Footer)</span>
     </footer>

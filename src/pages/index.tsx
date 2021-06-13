@@ -1,12 +1,12 @@
 import { useState } from "react";
-import Layout from "../components/Layout";
 import jwt from "jsonwebtoken";
-import { useAuth } from "../context/AuthContext";
 import Link from "next/link";
 import { notification } from "antd";
 import Router from "next/router";
 import * as Sentry from "@sentry/browser";
-import { PrivateRoute } from "../components/PrivateRoute";
+import { useAuth } from "../context/AuthContext";
+import { PrivateRoute } from "../components";
+import Layout from "../components/Layout";
 
 const IndexPage = () => {
   const [username, setUsername] = useState<string>("");
@@ -81,32 +81,36 @@ const IndexPage = () => {
     }
   };
   return (
-    <Layout title="Home | Next.js + TypeScript Example">
-      <Link href="/update-profile">Update Profile</Link>
-      <button onClick={handleLogout}>Logout</button>
-      <strong>Email: {currentUser?.email}</strong>
-      <p>{message}</p>
-      <p>Secret: {secret}</p>
-      <div>
-        <form>
-          <input
-            type="text"
-            name="username"
-            value={username}
-            onChange={handleChange}
-          />
-          <br />
-          <input
-            type="password"
-            name="password"
-            onChange={handleChange}
-            value={password}
-          />
-          <br />
-          <input type="button" value="Login" onClick={handleFormSubmit} />
-        </form>
-      </div>
-    </Layout>
+    <>
+      <Layout title="Home | Next.js + TypeScript Example">
+        <div style={{ padding: 50 }}>
+          <Link href="/update-profile">Update Profile</Link>
+          <button onClick={handleLogout}>Logout</button>
+          <strong>Email: {currentUser?.email}</strong>
+          <p>{message}</p>
+          <p>Secret: {secret}</p>
+          <div>
+            <form>
+              <input
+                type="text"
+                name="username"
+                value={username}
+                onChange={handleChange}
+              />
+              <br />
+              <input
+                type="password"
+                name="password"
+                onChange={handleChange}
+                value={password}
+              />
+              <br />
+              <input type="button" value="Login" onClick={handleFormSubmit} />
+            </form>
+          </div>
+        </div>
+      </Layout>
+    </>
   );
 };
 

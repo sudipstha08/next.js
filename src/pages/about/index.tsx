@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Layout from "../../context/components/Layout";
+import Layout from "../../components/Layout";
 import styles from "./styles.module.scss";
 import { EmailShareButton, FacebookShareButton } from "react-share";
-import { LineShare, MailTo } from "../../context/components";
+import { LineShare, MailTo } from "../../components";
 import axios from "axios";
 
 const AboutPage = () => {
