@@ -54,7 +54,7 @@ const StyledComponent: React.FC<IProps> = () => {
     <ThemeProvider theme={theme}>
       <Wrapper>
         <Title>Hello</Title>
-        <Button primary>Primary</Button>
+        <Button>Primary</Button>
         <Button>Regular</Button>
         <HeaderText>Hello styled components</HeaderText>
         <TextField
