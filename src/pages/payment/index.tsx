@@ -33,7 +33,8 @@ const Article = styled.div`
     position: sticky;
     top: 0;
     margin-bottom: 20px;
-    font-size: 20px;
+    margin-top: 20px;
+    font-size: 1.5rem;
     font-weight: 600;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     background: #fff;

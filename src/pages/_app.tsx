@@ -10,6 +10,7 @@ import { AuthProvider } from "../context/AuthContext";
 import { isIE } from "../utils/isIE";
 import "antd/dist/antd.css";
 import { GlobalStyles } from "../styles/global-styles";
+import axios from "axios";
 //To prevent TypeScript errors on the css prop on arbitrary elements
 // import {} from "styled-components/cssprop";
 // import * as _ from "styled-components/cssprop";
@@ -50,6 +51,20 @@ const App = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
     if (isIE()) {
       router.push("/browser-not-supported");
+    }
+  }, []);
+
+  useEffect(() => {
+    try {
+      const res = axios.get("http://localhost:9001/sitemap");
+      if (res) {
+        console.log(
+          "res",
+          res.then((data) => console.log(data)),
+        );
+      }
+    } catch (err) {
+      console.error("ddd");
     }
   }, []);
   return (
