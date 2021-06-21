@@ -1,7 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
-  * {
+  *, 
+  *::before, 
+  *::after  {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -13,5 +15,10 @@ export const GlobalStyles = createGlobalStyle`
 
   li {
     list-style-type: none;
+  }
+
+  :root {
+    --clr-primary-200: #F3EED9;
+    --clr-neutral-100: #fff;
   }
 `;
