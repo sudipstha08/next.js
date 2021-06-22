@@ -10,25 +10,26 @@ const colors = {
 
 const MainContainer = styled.main`
   padding: 2em 4em;
-  & .container1 {
-    display: grid;
-    // grid-template-rows / grid-template-columns
-    grid-template: repeat(2, 1fr) / repeat(3, 1fr);
-    grid-gap: 1rem;
+`;
 
-    & > * {
-      display: grid;
-      place-items: center;
-      padding: 1em 2em;
-      color: #fff;
-      font-size: 1.5rem;
-    }
-    & > :nth-child(odd) {
-      background: blue;
-    }
-    & > :nth-child(even) {
-      background: green;
-    }
+const Container1 = styled.section`
+  display: grid;
+  // grid-template-rows / grid-template-columns
+  grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+  grid-gap: 0.5rem;
+
+  & > * {
+    display: grid;
+    place-items: center;
+    padding: 1em 2em;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+  & > :nth-child(odd) {
+    background: blue;
+  }
+  & > :nth-child(even) {
+    background: green;
   }
 `;
 
@@ -69,4 +70,41 @@ const Container2 = styled.section`
   }
 `;
 
-export { MainContainer, Container2 };
+const Container3 = styled.section`
+  margin-top: 50px;
+  & > * {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    text-transform: uppercase;
+  }
+
+  display: grid;
+  grid-gap: 0.375rem;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 60px 200px 60px;
+  grid-template-areas:
+    ". h h h h h h h h h h ."
+    "m c c c c c c c c c c c"
+    ". f f f f f f f f f f .";
+  & .header {
+    background: ${colors.lightblue};
+    grid-area: h;
+  }
+  & .menu {
+    background: ${colors.red};
+    grid-area: m;
+  }
+  & .content {
+    background: ${colors.green};
+    grid-area: c;
+  }
+  & .footer {
+    background: ${colors.dark};
+    grid-area: f;
+  }
+`;
+
+export { MainContainer, Container1, Container2, Container3 };
