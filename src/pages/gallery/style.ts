@@ -101,6 +101,7 @@ const Wrapper = styled.div`
 const FlexBox = styled.section`
   .flexbox-container {
     display: flex;
+    flex-wrap: wrap;
     background: yellow;
     padding: 2em 3em;
   }
@@ -142,29 +143,14 @@ const ResponsiveGallery = styled.div`
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 2vw;
   flex-wrap: wrap;
-  div.gallery {
-    border: 1px solid #ccc;
-  }
-
-  div.gallery img {
-    max-width: 100%;
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-  }
-
-  div.desc {
-    padding: 15px;
-    text-align: center;
-  }
-
-  .responsive {
-    width: 100%;
-  }
-
-  @media only screen and (max-width: 1024px) {
+  max-width: 1500px;
+  @media only screen and (max-width: 1200px) {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  /* @media only screen and (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  } */
 
   @media only screen and (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
