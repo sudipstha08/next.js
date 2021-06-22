@@ -98,6 +98,7 @@ const GalleryPage = () => {
           </div>
         </FlexBox>
       </Wrapper>
+      <h1>Images Descriptions</h1>
       <ResponsiveGallery>
         <ImageCard imagePath="/images/image-001.jpg" desp="This is image 1" />
         <ImageCard imagePath="/images/image-002.jpg" desp="This is image 2" />
@@ -110,6 +111,7 @@ const GalleryPage = () => {
       </ResponsiveGallery>
       <div />
       <br />
+      <h1>Responsive Image Gallery</h1>
       <GalleryWrapper>
         <img src="/images/image-001.jpg" loading="lazy" />
         <img src="/images/image-002.jpg" loading="lazy" />
