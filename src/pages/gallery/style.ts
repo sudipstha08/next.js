@@ -135,7 +135,47 @@ const FlexBox = styled.section`
   }
 `;
 
-const Gallery = styled.section`
+const ResponsiveGallery = styled.div`
+  width: 92%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2vw;
+  flex-wrap: wrap;
+  div.gallery {
+    border: 1px solid #ccc;
+  }
+
+  div.gallery img {
+    max-width: 100%;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+
+  div.desc {
+    padding: 15px;
+    text-align: center;
+  }
+
+  .responsive {
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media only screen and (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const GalleryWrapper = styled.div`
   line-height: 0;
   -webkit-column-count: 5; /* split it into 5 columns */
   -webkit-column-gap: 5px; /* give it a 5px gap between columns */
@@ -144,7 +184,6 @@ const Gallery = styled.section`
   column-count: 5;
   column-gap: 5px;
   background: #f8f8f8;
-
   & img {
     width: 100% !important;
     height: auto !important;
@@ -176,4 +215,4 @@ const Gallery = styled.section`
   }
 `;
 
-export { Wrapper, FlexBox, Gallery };
+export { Wrapper, FlexBox, GalleryWrapper, ResponsiveGallery };
