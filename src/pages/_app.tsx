@@ -69,6 +69,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap"
           rel="stylesheet"
         ></link>
+        <meta name="description" content="Next js research and documentation" />
         <script
           src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js"
           defer

@@ -1,7 +1,7 @@
 import React from "react";
-import { Wrapper, FlexBox } from "./style";
+import { Wrapper, FlexBox, Gallery } from "./style";
 
-const Gallery = () => {
+const GalleryPage = () => {
   return (
     <Wrapper>
       <div>
@@ -95,8 +95,34 @@ const Gallery = () => {
           <div className="flexbox-item flexbox-item-3">Flex box item 3</div>
         </div>
       </FlexBox>
+      <Gallery>
+        <img src="/images/image-001.jpg" loading="lazy" />
+        <img src="/images/image-002.jpg" loading="lazy" />
+        <img src="/images/image-003.jpg" loading="lazy" />
+        <img src="/images/image-004.jpg" loading="lazy" />
+        <img src="/images/image-005.jpg" loading="lazy" />
+        <img src="/images/image-006.jpg" loading="lazy" />
+        <img src="/images/image-007.jpg" loading="lazy" />
+        <img src="/images/image-008.jpg" loading="lazy" />
+        <img src="/images/image-009.jpg" loading="lazy" />
+        <img src="/images/image-010.jpg" loading="lazy" />
+        <img src="/images/image-011.jpg" loading="lazy" />
+        <img src="/images/image-012.jpg" loading="lazy" />
+        <img src="/images/image-013.jpg" loading="lazy" />
+        <img src="/images/image-014.jpg" loading="lazy" />
+        <img src="/images/image-015.jpg" loading="lazy" />
+        <img src="/images/image-016.jpg" loading="lazy" />
+        <img src="/images/image-017.jpg" loading="lazy" />
+        <img src="/images/image-018.jpg" loading="lazy" />
+        <img src="/images/image-019.jpg" loading="lazy" />
+        <img src="/images/image-020.jpg" loading="lazy" />
+        <img src="/images/image-021.jpg" loading="lazy" />
+        <img src="/images/image-022.jpg" loading="lazy" />
+        <img src="/images/image-023.jpg" loading="lazy" />
+        <img src="/images/image-024.jpg" loading="lazy" />
+      </Gallery>
     </Wrapper>
   );
 };
 
-export default Gallery;
+export default GalleryPage;
