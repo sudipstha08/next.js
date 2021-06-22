@@ -137,13 +137,12 @@ const FlexBox = styled.section`
 `;
 
 const ResponsiveGallery = styled.div`
-  width: 92%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 2vw;
   flex-wrap: wrap;
-  max-width: 1500px;
+  width: min(92%, 1500px);
   @media only screen and (max-width: 1200px) {
     grid-template-columns: repeat(3, 1fr);
   }
