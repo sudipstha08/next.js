@@ -59,7 +59,8 @@ const Wrapper = styled.div`
   }
 
   .container {
-    margin-inline: auto; // left margin && right margin
+    margin-inline: auto;
+    // left margin && right margin
     width: min(90%, 70.5rem);
   }
 
@@ -97,4 +98,41 @@ const Wrapper = styled.div`
   }
 `;
 
-export { Wrapper };
+const FlexBox = styled.section`
+  .flexbox-container {
+    display: flex;
+    background: yellow;
+    padding: 2em 3em;
+  }
+  .flexbox-item {
+    width: 200px;
+    margin: 10px;
+    border: 3px solid #333;
+    background-color: #dfdfdf;
+    display: grid;
+    place-items: center;
+  }
+  .flexbox-item-1 {
+    min-height: 100px;
+    flex-shrink: 0;
+    align-self: flex-end;
+    order: 2;
+  }
+  .flexbox-item-2 {
+    min-height: 200px;
+    flex-grow: 2;
+    align-self: center;
+    flex-basis: 0;
+    order: 3;
+  }
+  .flexbox-item-3 {
+    min-height: 300px;
+    flex-shrink: 1;
+    flex-grow: 1;
+    // The flex-basis CSS property sets the initial main size of a flex item.
+    flex-basis: 0;
+    order: 1;
+  }
+`;
+
+export { Wrapper, FlexBox };

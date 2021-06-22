@@ -1,5 +1,5 @@
 import React from "react";
-import { Wrapper } from "./style";
+import { Wrapper, FlexBox } from "./style";
 
 const Gallery = () => {
   return (
@@ -88,6 +88,13 @@ const Gallery = () => {
           </div>
         </section>
       </div>
+      <FlexBox>
+        <div className="flexbox-container">
+          <div className="flexbox-item flexbox-item-1">Flexbox item 1</div>
+          <div className="flexbox-item flexbox-item-2">Flexbox item 2</div>
+          <div className="flexbox-item flexbox-item-3">Flex box item 3</div>
+        </div>
+      </FlexBox>
     </Wrapper>
   );
 };

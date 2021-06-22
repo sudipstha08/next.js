@@ -9,6 +9,10 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   button {
     cursor: pointer;
   }
