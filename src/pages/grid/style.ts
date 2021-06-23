@@ -4,6 +4,7 @@ const colors = {
   blue: "#007bff",
   green: "#28a745",
   red: "#dc3545",
+  tomato: "Tomato",
   lightblue: "#17a2b8",
   dark: "#343a40",
 };
@@ -70,6 +71,7 @@ const Container2 = styled.section`
   }
 `;
 
+//  Template areas
 const Container3 = styled.section`
   margin-top: 50px;
   & > * {
@@ -107,4 +109,102 @@ const Container3 = styled.section`
   }
 `;
 
-export { MainContainer, Container1, Container2, Container3 };
+// Auto-fit and minmax
+const Container4 = styled.section`
+  margin-top: 50px;
+  & > * {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 600;
+    display: grid;
+    place-items: center;
+  }
+  & > :nth-child(2n + 0) {
+    background: ${colors.tomato};
+  }
+  & > :nth-child(3n + 0) {
+    background: ${colors.dark};
+  }
+  & > :nth-child(4n + 0) {
+    background: ${colors.green};
+  }
+  & > :nth-child(odd) {
+    background: ${colors.lightblue};
+  }
+
+  display: grid;
+  grid-gap: 0.25rem;
+  // The minmax() CSS function defines a size range greater than or equal to min
+  // and less than or equal to max.
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: repeat(2, 200px);
+`;
+
+// IMPLICIT ROWS
+const Container5 = styled.section`
+  margin-top: 50px;
+  & > * {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 600;
+    display: grid;
+    place-items: center;
+  }
+  & > :nth-child(2n + 0) {
+    background: ${colors.tomato};
+  }
+  & > :nth-child(3n + 0) {
+    background: ${colors.dark};
+  }
+  & > :nth-child(4n + 0) {
+    background: ${colors.green};
+  }
+  & > :nth-child(odd) {
+    background: ${colors.lightblue};
+  }
+  display: grid;
+  grid-gap: 0.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  // all rows will be created implicitly and will be 200px in height
+  grid-auto-rows: 200px;
+`;
+
+const Container6 = styled.section`
+  margin-top: 50px;
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: 150px;
+  // controls how the auto-placement algorithm works
+  grid-auto-flow: dense;
+  & img {
+    max-height: 100%;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .horizontal {
+    /* grid-column: auto / span 2; */ // same
+    grid-column: span 2; //same
+  }
+
+  .vertical {
+    grid-row: span 2;
+  }
+
+  .big {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+`;
+
+export {
+  MainContainer,
+  Container1,
+  Container2,
+  Container3,
+  Container4,
+  Container5,
+  Container6,
+};
