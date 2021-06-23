@@ -7,6 +7,7 @@ import {
   Container4,
   Container5,
   Container6,
+  Container7,
 } from "./style";
 
 const GridPage = () => {
@@ -140,6 +141,13 @@ const GridPage = () => {
           <img src="/images/image-024.jpg" />
         </div>
       </Container6>
+
+      <Container7>
+        <div className="header">header</div>
+        <div className="menu">menu</div>
+        <div className="content">content</div>
+        <div className="footer">footer</div>
+      </Container7>
     </MainContainer>
   );
 };

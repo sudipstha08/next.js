@@ -199,6 +199,45 @@ const Container6 = styled.section`
   }
 `;
 
+// NAMED LINES
+const Container7 = styled.section`
+  margin-top: 50px;
+  height: 400px;
+  & > * {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    text-transform: uppercase;
+  }
+
+  display: grid;
+  grid-gap: 0.275rem;
+  grid-template-columns: [main-start] 1fr [content-start] 5fr [content-end main-end];
+  grid-template-rows: [main-start] 40px [content-start] auto [content-end] 40px [main-end];
+
+  .header {
+    background: ${colors.lightblue};
+    /* grid-column: main-start / main-end; */
+    grid-column: main;
+  }
+  .menu {
+    background: ${colors.red};
+  }
+  .content {
+    /* grid-column: content-start / content-end; */
+    /* grid-column: content; */ // SAME
+    grid-area: content; // SAME
+    background: ${colors.green};
+  }
+  .footer {
+    background: ${colors.dark};
+    /* grid-column: main-start / main-end; */
+    grid-column: main;
+  }
+`;
+
 export {
   MainContainer,
   Container1,
@@ -207,4 +246,5 @@ export {
   Container4,
   Container5,
   Container6,
+  Container7,
 };
