@@ -11,7 +11,6 @@ const colors = {
 
 const MainContainer = styled.main`
   padding: 2em 4em;
-
   & .container {
     margin-top: 50px;
     & > * {
@@ -43,17 +42,8 @@ const MainContainer = styled.main`
     & > :nth-child(odd) {
       background: ${colors.lightblue};
     }
-    & > :nth-child(2n + 0) {
-      background: ${colors.tomato};
-    }
-    & > :nth-child(3n + 0) {
-      background: ${colors.dark};
-    }
     & > :nth-child(4n + 0) {
       background: ${colors.green};
-    }
-    & > :nth-child(odd) {
-      background: ${colors.lightblue};
     }
   }
 `;
@@ -88,7 +78,7 @@ const Container2 = styled.section`
   }
 `;
 
-//  Template areas
+//  TEMPLATE AREAS
 const Container3 = styled.section`
   display: grid;
   grid-gap: 0.375rem;
@@ -112,7 +102,7 @@ const Container3 = styled.section`
   }
 `;
 
-// Auto-fit and minmax
+// AUTO-FIT && MIN-MAX
 const Container4 = styled.section`
   display: grid;
   grid-gap: 0.25rem;
@@ -131,8 +121,8 @@ const Container5 = styled.section`
   grid-auto-rows: 200px;
 `;
 
+// IMAGE GALLERY
 const Container6 = styled.section`
-  margin-top: 50px;
   display: grid;
   grid-gap: 0.5rem;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -140,10 +130,6 @@ const Container6 = styled.section`
   // controls how the auto-placement algorithm works
   grid-auto-flow: dense;
 
-  & > div {
-    width: 100%;
-    height: 100%;
-  }
   & img {
     max-height: 100%;
     max-width: 100%;
@@ -189,7 +175,7 @@ const Container7 = styled.section`
   }
 `;
 
-//  Justify-content and align-content
+//  JUSTIFY-CONTENT && ALIGN CONTENT
 const Container8 = styled.section`
   border: 1px solid #ccc;
   height: 500px;

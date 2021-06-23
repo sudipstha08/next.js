@@ -68,7 +68,7 @@ const GridPage = () => {
       </Container5>
 
       <h1 style={{ textAlign: "center", marginTop: 100 }}>Image Gallery</h1>
-      <Container6 className="container">
+      <Container6>
         <div>
           <img src="/images/image-001.jpg" />
         </div>
