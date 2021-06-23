@@ -8,12 +8,13 @@ import {
   Container5,
   Container6,
   Container7,
+  Container8,
 } from "./style";
 
 const GridPage = () => {
   return (
     <MainContainer>
-      <Container1 className="container1">
+      <Container1 className="container1 container">
         <div>1</div>
         <div>2</div>
         <div>3</div>
@@ -22,21 +23,21 @@ const GridPage = () => {
         <div>6</div>
       </Container1>
 
-      <Container2 className="container2">
+      <Container2 className="container2 container">
         <div className="header">header</div>
         <div className="menu">menu</div>
         <div className="content">content</div>
         <div className="footer">footer</div>
       </Container2>
 
-      <Container3>
+      <Container3 className="container">
         <div className="header">header</div>
         <div className="menu">menu</div>
         <div className="content">content</div>
         <div className="footer">footer</div>
       </Container3>
 
-      <Container4>
+      <Container4 className="container">
         <div>1</div>
         <div>2</div>
         <div>3</div>
@@ -51,7 +52,7 @@ const GridPage = () => {
         <div>12</div>
       </Container4>
 
-      <Container5>
+      <Container5 className="container">
         <div>1</div>
         <div>2</div>
         <div>3</div>
@@ -67,7 +68,7 @@ const GridPage = () => {
       </Container5>
 
       <h1 style={{ textAlign: "center", marginTop: 100 }}>Image Gallery</h1>
-      <Container6>
+      <Container6 className="container">
         <div>
           <img src="/images/image-001.jpg" />
         </div>
@@ -142,12 +143,21 @@ const GridPage = () => {
         </div>
       </Container6>
 
-      <Container7>
+      <Container7 className="container">
         <div className="header">header</div>
         <div className="menu">menu</div>
         <div className="content">content</div>
         <div className="footer">footer</div>
       </Container7>
+
+      <Container8 className="container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+      </Container8>
     </MainContainer>
   );
 };
