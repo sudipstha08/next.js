@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import styled from "styled-components";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -50,10 +49,12 @@ const validationSchema = Yup.object({
 });
 
 const onSubmit = (values: any) => {
+  // eslint-disable-next-line no-console
   console.log("datas", values);
 };
 
 const handleDateChange = (date: any, dateString: string) => {
+  // eslint-disable-next-line no-console
   console.log(date, dateString);
 };
 interface IProps {

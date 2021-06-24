@@ -18,7 +18,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 // GET STATIC PROPS RUNS AT BUILD TIME. IT DOES NOT RUN AT RUNTIME
-
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [{ params: { name: "video1" } }, { params: { name: "video2" } }],
