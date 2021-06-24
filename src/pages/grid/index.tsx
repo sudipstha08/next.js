@@ -18,11 +18,12 @@ interface ImageProps {
   height?: number;
 }
 
-const getImgSize = (imgSrc) => {
+const getImgSize = (imgSrc: string) => {
   return new Promise((resolve, reject) => {
     const newImg = new Image();
-    let height;
-    let width;
+    let height: number;
+    let width: number;
+
     newImg.onload = () => {
       height = newImg.height;
       width = newImg.width;
@@ -37,20 +38,24 @@ const getImgSize = (imgSrc) => {
 
 const GridPage = () => {
   useEffect(() => {
-    const imageContainer = document?.getElementById("image-container");
-    const imageWrappers = imageContainer?.children;
+    const imageContainer: HTMLElement | null = document?.getElementById(
+      "image-container",
+    );
+    const imageWrappers: HTMLCollection | undefined = imageContainer?.children;
 
     Array.from(imageWrappers as HTMLCollection).forEach(
-      async (imageWrapper) => {
-        const image = await imageWrapper?.children[0];
-        const a: any = await getImgSize(image.getAttribute("src"));
-        const aspectRatio = a.width / a.height;
+      async (imageWrapper: Element) => {
+        const image: Element = await imageWrapper?.children[0];
+        const dimension: any = await getImgSize(
+          image.getAttribute("src") as string,
+        );
+        const aspectRatio: number = dimension.width / dimension.height;
 
         if (aspectRatio > 1.4) {
           imageWrapper?.classList.add("landscape");
-        } else if (aspectRatio < 0.6) {
+        } else if (aspectRatio < 0.65) {
           imageWrapper?.classList.add("portrait");
-        } else if (a.height > 4000 && a.width > 4000) {
+        } else if (dimension.height > 4000 && dimension.width > 4000) {
           imageWrapper?.classList.add("big");
         } else {
           imageWrapper?.classList.add("normal");
