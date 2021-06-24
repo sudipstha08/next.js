@@ -1,13 +1,5 @@
 import styled from "styled-components";
-
-const colors = {
-  blue: "#007bff",
-  green: "#28a745",
-  red: "#dc3545",
-  tomato: "Tomato",
-  lightblue: "#17a2b8",
-  dark: "#343a40",
-};
+import { colors } from "../../utils/theme";
 
 const MainContainer = styled.main`
   padding: 2em 4em;
@@ -137,11 +129,11 @@ const Container6 = styled.section`
     height: 100%;
     object-fit: cover;
   }
-  .horizontal {
+  .landscape {
     /* grid-column: auto / span 2; */ // same
     grid-column: span 2; //same
   }
-  .vertical {
+  .portrait {
     grid-row: span 2;
   }
   .big {
@@ -178,13 +170,55 @@ const Container7 = styled.section`
 //  JUSTIFY-CONTENT && ALIGN CONTENT
 const Container8 = styled.section`
   border: 1px solid #ccc;
-  height: 500px;
+  height: 400px;
   display: grid;
   grid-gap: 0.25rem;
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(2, 100px);
   justify-content: space-evenly;
   align-content: center;
+`;
+
+// JUSTIFY-ITEMS && ALIGN-ITEMS
+const Container9 = styled.section`
+  display: grid;
+  grid-gap: 0.25rem;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 40px auto 40px;
+  height: 500px;
+  justify-items: center;
+  align-items: center;
+  .header {
+    grid-column: 1 / -1; // first to last
+  }
+  .menu {
+    grid-column: 1 / 3;
+  }
+  .content {
+    grid-column: 3 / -1;
+    /* justify-self: center;
+    align-self: end; */
+  }
+  .footer {
+    grid-column: 1 / -1;
+  }
+`;
+
+const Container10 = styled.section`
+  .container-autofit {
+    display: grid;
+    border: 1px solid black;
+    grid-gap: 0.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: 200px 200px;
+  }
+  .container-autofill {
+    display: grid;
+    border: 1px solid black;
+    grid-gap: 0.25rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-rows: 200px 200px;
+  }
 `;
 
 export {
@@ -197,4 +231,6 @@ export {
   Container6,
   Container7,
   Container8,
+  Container9,
+  Container10,
 };
