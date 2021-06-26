@@ -1,5 +1,5 @@
 import React, { useState, createRef, FC } from "react";
-import { Wrapper } from "./style";
+import { Wrapper, Container } from "./style";
 
 interface IProps {
   className?: string;
@@ -128,13 +128,17 @@ const PhoneNumber: FC<IProps> = ({ onChange, value, className }) => {
     );
   };
   return (
-    <>
+    <Container>
       <Wrapper className={className}>
         {parts.map((p) => {
           return renderPart(p.part, p.num, p.placeholder, p.ref);
         })}
       </Wrapper>
-    </>
+      <div className="seperator">
+        <span>―</span>
+        <span>―</span>
+      </div>
+    </Container>
   );
 };
 
