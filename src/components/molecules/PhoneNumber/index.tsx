@@ -7,6 +7,25 @@ interface IProps {
   onChange?: (params: any) => void;
 }
 
+const KEY_CODE = {
+  BACKSPACE: 8,
+  TAB: 9,
+  ENTER: 13,
+  SHIFT: 16,
+  ALT: 18,
+  CAPS_LOCK: 20,
+  ESC: 27,
+  SPACE_BAR: 32,
+  END: 35,
+  LEFT: 37,
+  UP: 38,
+  RIGHT: 39,
+  DOWN: 40,
+  DELETE: 46,
+  CHAR_A: 65,
+  NUM_PAD_DOT: 110,
+};
+
 const PhoneNumber: FC<IProps> = ({ onChange, value, className }) => {
   const p = value || "";
   const [state, setState] = useState<any>({
@@ -21,7 +40,7 @@ const PhoneNumber: FC<IProps> = ({ onChange, value, className }) => {
     { part: "part3", num: 3, placeholder: "000", ref: createRef() },
   ];
 
-  const getPart = (name) => {
+  const getPart = (name: string) => {
     const currentPart = parts.filter((p) => p.part === name)?.[0] as any;
     const currentElement = currentPart?.ref?.current as HTMLInputElement;
     return currentElement?.value as any;
@@ -49,16 +68,17 @@ const PhoneNumber: FC<IProps> = ({ onChange, value, className }) => {
   const handleKeyPress = (e: any) => {
     if (
       // Allow: backspace, delete, tab, escape, enter
-      e.charCode === 46 ||
-      e.charCode === 8 ||
-      e.charCode === 9 ||
-      e.charCode === 27 ||
-      e.charCode === 13 ||
-      e.charCode === 110 ||
+      e.charCode === KEY_CODE.DELETE ||
+      e.charCode === KEY_CODE.BACKSPACE ||
+      e.charCode === KEY_CODE.TAB ||
+      e.charCode === KEY_CODE.ESC ||
+      e.charCode === KEY_CODE.ENTER ||
+      e.charCode === KEY_CODE.NUM_PAD_DOT ||
       // Allow: Ctrl+A, Command+A
-      (e.charCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+      (e.charCode === KEY_CODE.CHAR_A &&
+        (e.ctrlKey === true || e.metaKey === true)) ||
       // Allow: home, end, left, right, down, up
-      (e.charCode >= 35 && e.charCode <= 40)
+      (e.charCode >= KEY_CODE.END && e.charCode <= KEY_CODE.DOWN)
     ) {
       // let it happen, don't do anything
       return;
@@ -69,13 +89,14 @@ const PhoneNumber: FC<IProps> = ({ onChange, value, className }) => {
     }
   };
 
-  const handleKeyUp = (e) => {
+  const handleKeyUp = (e: any) => {
     // 'delete' and input is empty, then go to previous input
     const currentPart = parts.filter(
       (p) => p.part === e.target.name,
     )?.[0] as any;
     const currentElement = currentPart?.ref?.current as HTMLInputElement;
-    if (e.keyCode === 8 && !currentElement?.value) {
+
+    if (e.keyCode === KEY_CODE.BACKSPACE && !currentElement?.value) {
       const previous = currentElement?.previousElementSibling as HTMLInputElement;
       if (previous && previous.tagName.toLowerCase() == "input") {
         previous.focus();
@@ -84,8 +105,8 @@ const PhoneNumber: FC<IProps> = ({ onChange, value, className }) => {
 
     // if tab, left, or right just exit
     if (
-      e.keyCode === 9 ||
-      e.keyCode === 16 ||
+      e.keyCode === KEY_CODE.TAB ||
+      e.keyCode === KEY_CODE.SHIFT ||
       (e.keyCode >= 35 && e.keyCode <= 40)
     ) {
       return;
@@ -95,6 +116,7 @@ const PhoneNumber: FC<IProps> = ({ onChange, value, className }) => {
       currentElement.attributes["maxlength"].value,
       10,
     );
+
     const myLength = currentElement.value.length;
     if (myLength >= maxLength) {
       let next = currentElement as any;
