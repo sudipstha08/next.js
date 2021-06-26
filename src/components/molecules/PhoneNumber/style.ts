@@ -40,6 +40,7 @@ const Wrapper = styled.div`
     outline: none;
     font-size: 16px;
     text-align: center;
+    z-index: 1;
   }
 `;
 
