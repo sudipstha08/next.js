@@ -16,9 +16,9 @@ const PhoneNumber: FC<IProps> = ({ onChange, value, className }) => {
   });
 
   const parts = [
-    { part: "part1", num: 3, placeholder: "555", ref: createRef(), key: "1" },
-    { part: "part2", num: 4, placeholder: "5545", ref: createRef(), key: "2" },
-    { part: "part3", num: 3, placeholder: "555", ref: createRef(), key: "3" },
+    { part: "part1", num: 3, placeholder: "000", ref: createRef() },
+    { part: "part2", num: 4, placeholder: "0000", ref: createRef() },
+    { part: "part3", num: 3, placeholder: "000", ref: createRef() },
   ];
 
   const getPart = (name) => {
@@ -76,10 +76,9 @@ const PhoneNumber: FC<IProps> = ({ onChange, value, className }) => {
     )?.[0] as any;
     const currentElement = currentPart?.ref?.current as HTMLInputElement;
     if (e.keyCode === 8 && !currentElement?.value) {
-      const previous = currentElement.previousElementSibling as HTMLInputElement;
+      const previous = currentElement?.previousElementSibling as HTMLInputElement;
       if (previous && previous.tagName.toLowerCase() == "input") {
         previous.focus();
-        // previous.value = previous.value;
       }
     }
 
