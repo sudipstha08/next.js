@@ -5,7 +5,7 @@ import { notification } from "antd";
 import Router from "next/router";
 import * as Sentry from "@sentry/browser";
 import { useAuth } from "../context/AuthContext";
-import { PrivateRoute } from "../components";
+import { PrivateRoute, PhoneNumber } from "../components";
 import Layout from "../components/Layout";
 
 const IndexPage = () => {
@@ -80,6 +80,11 @@ const IndexPage = () => {
       });
     }
   };
+
+  const handlePhoneNumChange = (num) => {
+    // eslint-disable-next-line no-console
+    console.log("number", num);
+  };
   return (
     <>
       <Layout title="Home | Next.js + TypeScript Example">
@@ -89,6 +94,12 @@ const IndexPage = () => {
           <strong>Email: {currentUser?.email}</strong>
           <p>{message}</p>
           <p>Secret: {secret}</p>
+          <PhoneNumber
+            value={""}
+            className="class"
+            onChange={handlePhoneNumChange}
+          />
+
           <div>
             <form>
               <input
