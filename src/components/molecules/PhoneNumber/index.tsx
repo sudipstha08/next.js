@@ -4,6 +4,7 @@ import { Wrapper, Container } from "./style";
 interface IProps {
   className?: string;
   value?: string;
+  error?: string | boolean;
   onChange?: (params: any) => void;
 }
 
@@ -26,7 +27,7 @@ const KEY_CODE = {
   NUM_PAD_DOT: 110,
 };
 
-const PhoneNumber: FC<IProps> = ({ onChange, value, className }) => {
+const PhoneNumber: FC<IProps> = ({ onChange, value, className, error }) => {
   const p = value || "";
   const [state, setState] = useState<any>({
     part1: p ? p.substr(0, 3) : "",
@@ -149,6 +150,7 @@ const PhoneNumber: FC<IProps> = ({ onChange, value, className }) => {
       />
     );
   };
+
   return (
     <Container>
       <Wrapper className={className}>
@@ -160,6 +162,7 @@ const PhoneNumber: FC<IProps> = ({ onChange, value, className }) => {
         <span>―</span>
         <span>―</span>
       </div>
+      {error && <div className="error">{error}</div>}
     </Container>
   );
 };
