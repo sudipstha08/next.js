@@ -50,7 +50,9 @@ const PhoneNumber: FC<IProps> = ({ onChange, value, className, error }) => {
   };
 
   const getValue = () => {
-    // Merge the 3 distinct parts into a single phone number
+    /*
+     * Merge the 3 distinct parts into a single phone number
+     */
     const phoneNumber = (getPart("part1") +
       getPart("part2") +
       getPart("part3")) as string;
@@ -58,11 +60,12 @@ const PhoneNumber: FC<IProps> = ({ onChange, value, className, error }) => {
   };
 
   const handleChange = (e) => {
-    // Update the data in the state
     const data = {};
     data[e.target.name] = e.target.value;
     setState(data);
-    // Call the parent objects 'onChange' method only if defined
+    /**
+     * Call the parent component 'onChange' method only if defined
+     **/
     if (onChange) {
       onChange(getValue());
     }
@@ -70,30 +73,39 @@ const PhoneNumber: FC<IProps> = ({ onChange, value, className, error }) => {
 
   const handleKeyPress = (e: any) => {
     if (
-      // Allow: backspace, delete, tab, escape, enter
+      /**
+       * Allow: backspace, delete, tab, escape, enter
+       **/
       e.charCode === KEY_CODE.DELETE ||
       e.charCode === KEY_CODE.BACKSPACE ||
       e.charCode === KEY_CODE.TAB ||
       e.charCode === KEY_CODE.ESC ||
       e.charCode === KEY_CODE.ENTER ||
       e.charCode === KEY_CODE.NUM_PAD_DOT ||
-      // Allow: Ctrl+A, Command+A
+      /**
+       * Allow: Ctrl+A, Command+A
+       **/
       (e.charCode === KEY_CODE.CHAR_A &&
         (e.ctrlKey === true || e.metaKey === true)) ||
-      // Allow: home, end, left, right, down, up
+      /**
+       * Allow: home, end, left, right, down, up
+       **/
       (e.charCode >= KEY_CODE.END && e.charCode <= KEY_CODE.DOWN)
     ) {
-      // let it happen, don't do anything
       return;
     }
-    // Ensure that it is a number and stop the keypress
+    /**
+     * Ensure that it is a number and stop the keypress
+     */
     if (e.charCode < KEY_CODE.DIGIT_ZERO || e.charCode > KEY_CODE.DIGIT_NINE) {
       e.preventDefault();
     }
   };
 
   const handleKeyUp = (e: any) => {
-    // 'delete' and input is empty, then go to previous input
+    /**
+     * 'delete' and input is empty, then go to previous input
+     **/
     const currentPart = parts.filter(
       (p) => p.part === e.target.name,
     )?.[0] as any;
@@ -106,7 +118,9 @@ const PhoneNumber: FC<IProps> = ({ onChange, value, className, error }) => {
       }
     }
 
-    // if tab, left, or right just exit
+    /**
+     * if tab, left, or right just exit
+     */
     if (
       e.keyCode === KEY_CODE.TAB ||
       e.keyCode === KEY_CODE.SHIFT ||
