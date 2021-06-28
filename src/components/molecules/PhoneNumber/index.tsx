@@ -59,7 +59,7 @@ const PhoneNumber: FC<IProps> = ({ onChange, value, className, error }) => {
     return phoneNumber;
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const data = {};
     data[e.target.name] = e.target.value;
     setState(data);
@@ -71,13 +71,13 @@ const PhoneNumber: FC<IProps> = ({ onChange, value, className, error }) => {
     }
   };
 
-  const handleKeyPress = (e: any) => {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (
       /**
        * Allow: backspace, delete, tab, escape, enter
        **/
-      e.charCode === KEY_CODE.DELETE ||
-      e.charCode === KEY_CODE.BACKSPACE ||
+      e?.charCode === KEY_CODE.DELETE ||
+      e?.charCode === KEY_CODE.BACKSPACE ||
       e.charCode === KEY_CODE.TAB ||
       e.charCode === KEY_CODE.ESC ||
       e.charCode === KEY_CODE.ENTER ||
