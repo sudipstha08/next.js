@@ -141,7 +141,7 @@ const PhoneNumber: FC<IProps> = ({ onChange, value, className, error }) => {
         name={name}
         ref={ref}
         maxLength={length}
-        value={state[name]}
+        defaultValue={state[name]}
         onChange={handleChange}
         placeholder={placeholder}
         onKeyPress={handleKeyPress}
