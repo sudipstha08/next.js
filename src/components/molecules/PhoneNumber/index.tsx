@@ -23,6 +23,8 @@ const KEY_CODE = {
   RIGHT: 39,
   DOWN: 40,
   DELETE: 46,
+  DIGIT_ZERO: 48,
+  DIGIT_NINE: 57,
   CHAR_A: 65,
   NUM_PAD_DOT: 110,
 };
@@ -85,7 +87,7 @@ const PhoneNumber: FC<IProps> = ({ onChange, value, className, error }) => {
       return;
     }
     // Ensure that it is a number and stop the keypress
-    if (e.charCode < 48 || e.charCode > 57) {
+    if (e.charCode < KEY_CODE.DIGIT_ZERO || e.charCode > KEY_CODE.DIGIT_NINE) {
       e.preventDefault();
     }
   };
@@ -108,7 +110,7 @@ const PhoneNumber: FC<IProps> = ({ onChange, value, className, error }) => {
     if (
       e.keyCode === KEY_CODE.TAB ||
       e.keyCode === KEY_CODE.SHIFT ||
-      (e.keyCode >= 35 && e.keyCode <= 40)
+      (e.keyCode >= KEY_CODE.END && e.keyCode <= KEY_CODE.DOWN)
     ) {
       return;
     }
