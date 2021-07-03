@@ -72,37 +72,41 @@ const PhoneNumber: FC<IProps> = ({ onChange, value, className, error }) => {
   };
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const CURRENT_KEY = Number(e.key);
     if (
       /**
        * Allow: backspace, delete, tab, escape, enter
        **/
-      e?.charCode === KEY_CODE.DELETE ||
-      e?.charCode === KEY_CODE.BACKSPACE ||
-      e.charCode === KEY_CODE.TAB ||
-      e.charCode === KEY_CODE.ESC ||
-      e.charCode === KEY_CODE.ENTER ||
-      e.charCode === KEY_CODE.NUM_PAD_DOT ||
+      CURRENT_KEY === KEY_CODE.DELETE ||
+      CURRENT_KEY === KEY_CODE.BACKSPACE ||
+      CURRENT_KEY === KEY_CODE.TAB ||
+      CURRENT_KEY === KEY_CODE.ESC ||
+      CURRENT_KEY === KEY_CODE.ENTER ||
+      CURRENT_KEY === KEY_CODE.NUM_PAD_DOT ||
       /**
        * Allow: Ctrl+A, Command+A
        **/
-      (e.charCode === KEY_CODE.CHAR_A &&
+      (CURRENT_KEY === KEY_CODE.CHAR_A &&
         (e.ctrlKey === true || e.metaKey === true)) ||
       /**
        * Allow: home, end, left, right, down, up
        **/
-      (e.charCode >= KEY_CODE.END && e.charCode <= KEY_CODE.DOWN)
+      (CURRENT_KEY >= KEY_CODE.END && CURRENT_KEY <= KEY_CODE.DOWN)
     ) {
       return;
     }
     /**
      * Ensure that it is a number and stop the keypress
      */
-    if (e.charCode < KEY_CODE.DIGIT_ZERO || e.charCode > KEY_CODE.DIGIT_NINE) {
+    if (
+      CURRENT_KEY < KEY_CODE.DIGIT_ZERO ||
+      CURRENT_KEY > KEY_CODE.DIGIT_NINE
+    ) {
       e.preventDefault();
     }
   };
 
-  const handleKeyUp = (e: any) => {
+  const handleKeyUp = (e: any): void => {
     /**
      * 'delete' and input is empty, then go to previous input
      **/
