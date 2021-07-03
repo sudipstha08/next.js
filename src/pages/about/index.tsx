@@ -1,31 +1,30 @@
 /* eslint-disable no-console */
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Layout from "../../components/Layout";
 import styles from "./styles.module.scss";
 import { EmailShareButton, FacebookShareButton } from "react-share";
-import { LineShare, MailTo } from "../../components";
-import axios from "axios";
+import { LineShare, MailTo, Timer } from "../../components";
 
 const AboutPage = () => {
-  const [shareCount, setShareCount] = useState(0);
+  // const [shareCount, setShareCount] = useState(0);
 
-  useEffect(() => {
-    LineIt?.loadButton();
-  }, []);
+  // useEffect(() => {
+  //   LineIt?.loadButton();
+  // }, []);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
-  const fetchData = async () => {
-    const res = await axios.get(
-      "https://api.line.me/social-plugin/metrics?url=https://line.me/en",
-    );
-    if (res && res.data) {
-      setShareCount(res.data.share);
-    }
-  };
+  // const fetchData = async () => {
+  //   const res = await axios.get(
+  //     "https://api.line.me/social-plugin/metrics?url=https://line.me/en",
+  //   );
+  //   if (res && res.data) {
+  //     setShareCount(res.data.share);
+  //   }
+  // };
 
   return (
     <Layout title="About | Next.js + TypeScript Example">
@@ -81,7 +80,8 @@ const AboutPage = () => {
       >
         I want free Bitcoins
       </a>
-      <div>
+      <Timer />
+      {/* <div>
         <div
           className="line-it-button"
           data-lang="en"
@@ -96,7 +96,7 @@ const AboutPage = () => {
         <p>
           <strong>Share Count :</strong> {shareCount}
         </p>
-      </div>
+      </div> */}
     </Layout>
   );
 };

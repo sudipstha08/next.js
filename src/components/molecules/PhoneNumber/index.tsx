@@ -23,6 +23,8 @@ const KEY_CODE = {
   RIGHT: 39,
   DOWN: 40,
   DELETE: 46,
+  DIGIT_ZERO: 48,
+  DIGIT_NINE: 57,
   CHAR_A: 65,
   NUM_PAD_DOT: 110,
 };
@@ -48,50 +50,66 @@ const PhoneNumber: FC<IProps> = ({ onChange, value, className, error }) => {
   };
 
   const getValue = () => {
-    // Merge the 3 distinct parts into a single phone number
+    /*
+     * Merge the 3 distinct parts into a single phone number
+     */
     const phoneNumber = (getPart("part1") +
       getPart("part2") +
       getPart("part3")) as string;
     return phoneNumber;
   };
 
-  const handleChange = (e) => {
-    // Update the data in the state
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const data = {};
     data[e.target.name] = e.target.value;
     setState(data);
-    // Call the parent objects 'onChange' method only if defined
+    /**
+     * Call the parent component 'onChange' method only if defined
+     **/
     if (onChange) {
       onChange(getValue());
     }
   };
 
-  const handleKeyPress = (e: any) => {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const CURRENT_KEY = Number(e.key);
     if (
-      // Allow: backspace, delete, tab, escape, enter
-      e.charCode === KEY_CODE.DELETE ||
-      e.charCode === KEY_CODE.BACKSPACE ||
-      e.charCode === KEY_CODE.TAB ||
-      e.charCode === KEY_CODE.ESC ||
-      e.charCode === KEY_CODE.ENTER ||
-      e.charCode === KEY_CODE.NUM_PAD_DOT ||
-      // Allow: Ctrl+A, Command+A
-      (e.charCode === KEY_CODE.CHAR_A &&
+      /**
+       * Allow: backspace, delete, tab, escape, enter
+       **/
+      CURRENT_KEY === KEY_CODE.DELETE ||
+      CURRENT_KEY === KEY_CODE.BACKSPACE ||
+      CURRENT_KEY === KEY_CODE.TAB ||
+      CURRENT_KEY === KEY_CODE.ESC ||
+      CURRENT_KEY === KEY_CODE.ENTER ||
+      CURRENT_KEY === KEY_CODE.NUM_PAD_DOT ||
+      /**
+       * Allow: Ctrl+A, Command+A
+       **/
+      (CURRENT_KEY === KEY_CODE.CHAR_A &&
         (e.ctrlKey === true || e.metaKey === true)) ||
-      // Allow: home, end, left, right, down, up
-      (e.charCode >= KEY_CODE.END && e.charCode <= KEY_CODE.DOWN)
+      /**
+       * Allow: home, end, left, right, down, up
+       **/
+      (CURRENT_KEY >= KEY_CODE.END && CURRENT_KEY <= KEY_CODE.DOWN)
     ) {
-      // let it happen, don't do anything
       return;
     }
-    // Ensure that it is a number and stop the keypress
-    if (e.charCode < 48 || e.charCode > 57) {
+    /**
+     * Ensure that it is a number and stop the keypress
+     */
+    if (
+      CURRENT_KEY < KEY_CODE.DIGIT_ZERO ||
+      CURRENT_KEY > KEY_CODE.DIGIT_NINE
+    ) {
       e.preventDefault();
     }
   };
 
-  const handleKeyUp = (e: any) => {
-    // 'delete' and input is empty, then go to previous input
+  const handleKeyUp = (e: any): void => {
+    /**
+     * 'delete' and input is empty, then go to previous input
+     **/
     const currentPart = parts.filter(
       (p) => p.part === e.target.name,
     )?.[0] as any;
@@ -104,11 +122,13 @@ const PhoneNumber: FC<IProps> = ({ onChange, value, className, error }) => {
       }
     }
 
-    // if tab, left, or right just exit
+    /**
+     * if tab, left, or right just exit
+     */
     if (
       e.keyCode === KEY_CODE.TAB ||
       e.keyCode === KEY_CODE.SHIFT ||
-      (e.keyCode >= 35 && e.keyCode <= 40)
+      (e.keyCode >= KEY_CODE.END && e.keyCode <= KEY_CODE.DOWN)
     ) {
       return;
     }
@@ -141,7 +161,7 @@ const PhoneNumber: FC<IProps> = ({ onChange, value, className, error }) => {
         name={name}
         ref={ref}
         maxLength={length}
-        value={state[name]}
+        defaultValue={state[name]}
         onChange={handleChange}
         placeholder={placeholder}
         onKeyPress={handleKeyPress}
