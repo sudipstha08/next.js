@@ -5,3 +5,4 @@ export { MailTo } from "./MailTo";
 export { CheckOutForm } from "./CheckOutForm";
 export { PhoneNumber } from "./PhoneNumber";
 export { Timer } from "./Timer";
+export { Clock } from "./Clock";
