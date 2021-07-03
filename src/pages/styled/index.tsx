@@ -1,6 +1,7 @@
 import styled, { ThemeProvider } from "styled-components";
 import dynamic from "next/dynamic";
 import TextField from "../../components/TextFIeld";
+import { Clock } from "../../components";
 
 const ReactDraggable = dynamic(
   () =>
@@ -19,10 +20,7 @@ const theme = {
   size: "30px",
 };
 
-const Wrapper = styled.div`
-  width: 300px;
-  height: 400px;
-`;
+const Wrapper = styled.div``;
 
 const Title = styled.p`
   color: green;
@@ -72,6 +70,7 @@ const StyledComponent: React.FC<IProps> = () => {
         <a href="mailto:user@domain.com?Subject=Hello%20User">Inbox me!</a>
         <ReactDraggable />
       </Wrapper>
+      <Clock />
     </ThemeProvider>
   );
 };

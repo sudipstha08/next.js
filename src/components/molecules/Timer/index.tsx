@@ -6,7 +6,6 @@ const Timer = () => {
   const startingMin = 10;
   let time = startingMin * 60;
 
-  // const countdownEl
   const updateCountDown = () => {
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
