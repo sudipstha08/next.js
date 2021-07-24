@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notification } from "antd";
 import Router from "next/router";
 import * as Sentry from "@sentry/browser";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../store/AuthContext";
 import { PrivateRoute, PhoneNumber } from "../components";
 import Layout from "../components/Layout";
 

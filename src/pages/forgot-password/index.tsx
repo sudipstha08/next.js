@@ -6,8 +6,8 @@ import * as Yup from "yup";
 import * as Sentry from "@sentry/browser";
 import { UserOutlined } from "@ant-design/icons";
 import styled from "styled-components";
-import { useAuth } from "../../context/AuthContext";
-import { TextField, Button } from "../../context/components";
+import { useAuth } from "../../store/AuthContext";
+import { TextField, Button } from "../../store/components";
 
 const Container = styled.section`
   display: grid;

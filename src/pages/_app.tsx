@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { useRouter } from "next/router";
 import * as Sentry from "@sentry/browser";
 import { Integrations } from "@sentry/tracing";
-import { AuthProvider } from "../context/AuthContext";
+import { AuthProvider } from "../store/AuthContext";
 import { isIE } from "../utils/isIE";
 import "antd/dist/antd.css";
 import { GlobalStyles } from "../styles/global-styles";
@@ -59,7 +59,7 @@ const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
-        <title>NEXT</title>
+        <title>NEXT | HOME</title>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Anton&family=Staatliches&display=swap"

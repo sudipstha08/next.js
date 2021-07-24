@@ -2,8 +2,8 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import * as Sentry from "@sentry/browser";
 import { User } from "../../interfaces";
 import { sampleUserData } from "../../utils/sample-data";
-import Layout from "../../context/components/Layout";
-import ListDetail from "../../context/components/ListDetail";
+import Layout from "../../store/components/Layout";
+import ListDetail from "../../store/components/ListDetail";
 
 type Props = {
   item?: User;

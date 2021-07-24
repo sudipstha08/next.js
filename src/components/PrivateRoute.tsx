@@ -1,6 +1,6 @@
 import Router from "next/router";
 import React from "react";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../store/AuthContext";
 
 const PrivateRoute = (Component: any) => {
   const Auth = (props: any) => {

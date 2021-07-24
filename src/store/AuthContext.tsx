@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { auth, firebase } from "../../firebase";
+import { Loader } from "../components";
 
 interface IProps {
   children?: React.ReactNode;
@@ -54,6 +55,10 @@ const AuthProvider = ({ children }: IProps) => {
   const updatePassword = (password: string) => {
     return currentUser?.updatePassword(password);
   };
+
+  if (loading) {
+    return <Loader />;
+  }
 
   const value = {
     currentUser,

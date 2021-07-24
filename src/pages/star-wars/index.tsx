@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ReactQueryDevtools } from "react-query/devtools";
-import { NavBar, Planets, People } from "../../context/components";
+import { NavBar, Planets, People } from "../../store/components";
 import { Wrapper } from "./style";
 
 const StarWarsPage: React.FC = () => {
