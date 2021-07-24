@@ -8,6 +8,7 @@ import * as Sentry from "@sentry/browser";
 import { Integrations } from "@sentry/tracing";
 import { AuthProvider } from "../store/AuthContext";
 import { isIE } from "../utils/isIE";
+import "mapbox-gl/dist/mapbox-gl.css";
 import "antd/dist/antd.css";
 import { GlobalStyles } from "../styles/global-styles";
 /**
