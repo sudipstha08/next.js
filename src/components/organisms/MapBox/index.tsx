@@ -5,8 +5,8 @@ import { EnvironmentOutlined } from "@ant-design/icons";
 const MapBox = () => {
   const [coords, setCoords] = React.useState<any>([]);
   const [viewport, setViewport] = React.useState({
-    longitude: -122.45,
-    latitude: 37.78,
+    longitude: 85.30678,
+    latitude: 27.747962,
     zoom: 14,
   });
 
