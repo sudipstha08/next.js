@@ -1,10 +1,11 @@
-## BASIC COMMANDS
+## BASIC COMMANDS :books:
 |     commands    |  description     |
 |-----------------|------------------|
 | yarn dev        | run dev server   |
 | yarn install    | install packages |
 
-## TECH STACKS
+
+## TECH STACKS 📦 
 |  techs               |   description          |
 |----------------------|------------------------|
 | next                 |  server side rendering |
@@ -12,7 +13,7 @@
 | react query          |  data fetching         |
 | firebase             |  authentication        |
 
-## REFERENCES
+## REFERENCES :book:
 1. https://readwriteexercise.com/posts/setting-up-create-react-app-vs-code-eslint-prettier/
 2. https://khalilstemmler.com/blogs/typescript/eslint-for-typescript/
 3. https://nextjs.org/docs/advanced-features/custom-app
