@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import Head from "next/head";
 import { ConfigProvider, DatePicker } from "antd";
 import moment from "moment";
+import { MapBox } from "../../components";
 import "moment/locale/ne";
 import locale from "antd/lib/locale/ne_NP";
 
@@ -66,58 +68,64 @@ interface IProps {
 
 const FormikPage: React.FC<IProps> = () => {
   return (
-    <FormWrapper>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={onSubmit}
-      >
-        <Form>
-          <div className="form-control">
-            <label htmlFor="name">Name</label>
-            <Field type="text" id="name" name="name" />
-            <ErrorMessage name="name" />
-          </div>
-          <div className="form-control">
-            <label htmlFor="email">Email</label>
-            <Field type="email" id="email" name="email" />
-            <ErrorMessage name="email" />
-          </div>
-          <div className="form-control">
-            <label htmlFor="channel">Channel</label>
-            <Field
-              type="text"
-              id="channel"
-              name="channel"
-              placeholder="channel name"
-            />
-            <ErrorMessage name="channel" />
-          </div>
-          <div className="form-control">
-            <label htmlFor="comments">Comments</label>
-            <Field
-              type="text"
-              as="textarea"
-              id="comments"
-              name="comments"
-              placeholder="comments..."
-            />
-            <ErrorMessage name="comments" />
-          </div>
-          <div className="form-control">
-            <ConfigProvider locale={locale}>
-              <DatePicker
-                onChange={handleDateChange}
-                defaultValue={moment("2021-01-18", "YYYY-MM-DD")}
+    <>
+      <Head>
+        <title>Formik</title>
+      </Head>
+      <FormWrapper>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={onSubmit}
+        >
+          <Form>
+            <div className="form-control">
+              <label htmlFor="name">Name</label>
+              <Field type="text" id="name" name="name" />
+              <ErrorMessage name="name" />
+            </div>
+            <div className="form-control">
+              <label htmlFor="email">Email</label>
+              <Field type="email" id="email" name="email" />
+              <ErrorMessage name="email" />
+            </div>
+            <div className="form-control">
+              <label htmlFor="channel">Channel</label>
+              <Field
+                type="text"
+                id="channel"
+                name="channel"
+                placeholder="channel name"
               />
-            </ConfigProvider>
-          </div>
-          <div>
-            <button type="submit">Submit</button>
-          </div>
-        </Form>
-      </Formik>
-    </FormWrapper>
+              <ErrorMessage name="channel" />
+            </div>
+            <div className="form-control">
+              <label htmlFor="comments">Comments</label>
+              <Field
+                type="text"
+                as="textarea"
+                id="comments"
+                name="comments"
+                placeholder="comments..."
+              />
+              <ErrorMessage name="comments" />
+            </div>
+            <div className="form-control">
+              <ConfigProvider locale={locale}>
+                <DatePicker
+                  onChange={handleDateChange}
+                  defaultValue={moment("2021-01-18", "YYYY-MM-DD")}
+                />
+              </ConfigProvider>
+            </div>
+            <div>
+              <button type="submit">Submit</button>
+            </div>
+          </Form>
+        </Formik>
+      </FormWrapper>
+      <MapBox />
+    </>
   );
 };
 
