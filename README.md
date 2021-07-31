@@ -19,6 +19,9 @@
 3. https://nextjs.org/docs/advanced-features/custom-app
 4. https://swapi.dev/
 5. https://react-query.tanstack.com/
+6. https://www.youtube.com/watch?v=497riGWbhsQ
+8. https://www.youtube.com/watch?v=oQXsSpuXUl4
+9. https://www.npmjs.com/package/jspdf
 
 ## Page optimization
 1. Use defer for scripts
@@ -57,4 +60,6 @@
   //   }
   // },
   // "license": "MIT"
+
+  https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions
 
