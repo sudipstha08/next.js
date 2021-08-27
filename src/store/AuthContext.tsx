@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
+import { message } from "antd";
 import { auth, firebase } from "../../firebase";
 import { Loader } from "../components";
 
@@ -25,9 +26,17 @@ const AuthProvider = ({ children }: IProps) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = auth?.onAuthStateChanged((user: any) => {
-      setCurrentUser(user);
-      setLoading(false);
+    const unsubscribe = auth?.onAuthStateChanged(async (user: any) => {
+      try {
+        if (user) {
+          setCurrentUser(user);
+          setLoading(false);
+        }
+        setLoading(false);
+      } catch (err) {
+        setLoading(false);
+        message.error("Error Occured. User not found");
+      }
     });
     return () => unsubscribe;
   }, []);
