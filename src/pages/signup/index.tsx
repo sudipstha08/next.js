@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Card, notification } from "antd";
 import Link from "next/link";
 import { useFormik } from "formik";
+import { useRouter } from "next/router";
 import * as Yup from "yup";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import styled from "styled-components";
@@ -35,6 +36,8 @@ const SignUpPage = () => {
     passwordConfirmation: "",
   });
 
+  const router = useRouter();
+
   const { signup } = useAuth();
 
   const validationSchema = Yup.object({
@@ -61,6 +64,7 @@ const SignUpPage = () => {
         message: "Account created successfully",
       });
       formik.resetForm();
+      router.push("/login");
     } catch (error) {
       setLoading(false);
       Sentry.withScope(function (scope) {
