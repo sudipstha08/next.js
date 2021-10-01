@@ -15,7 +15,9 @@ module.exports = {
     'prettier/@typescript-eslint',
     'plugin:prettier/recommended',
     'plugin:cypress/recommended',
-    'prettier'
+    'prettier',
+    // '@next/eslint-plugin-next"',
+    // "plugin:@next/next/recommended"
   ],
   parserOptions: {
     ecmaVersion: 2018,
@@ -54,7 +56,10 @@ module.exports = {
     'no-async-promise-executor': 0,
     'import/no-named-as-default': 0,
     '@typescript-eslint/explicit-module-boundary-types': 0,
-    'react/react-in-jsx-scope': 0
+    'react/react-in-jsx-scope': 0,
+    // 'next/google-font-preconnect': 2,
+    // 'next/google-font-display': 2,
+    // "next/no-typos": 2
   },
   plugins: ['prettier', "@typescript-eslint"],
 };

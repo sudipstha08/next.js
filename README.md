@@ -1,8 +1,9 @@
 ## BASIC COMMANDS :books:
 |     commands    |  description     |
 |-----------------|------------------|
-| yarn dev        | run dev server   |
+| yarn dev        | run dev server 🏃  |
 | yarn install    | install packages |
+| yarn storybook  | run storybook   🏃 |
 
 
 ## TECH STACKS 📦 
