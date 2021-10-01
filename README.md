@@ -1,8 +1,8 @@
 ## BASIC COMMANDS :books:
-|     commands    |  description     |
-|-----------------|------------------|
+|     commands    |  description       |
+|-----------------|--------------------|
 | yarn dev        | run dev server 🏃  |
-| yarn install    | install packages |
+| yarn install    | install packages   |
 | yarn storybook  | run storybook   🏃 |
 
 
@@ -13,6 +13,7 @@
 | context api          |  state management      |
 | react query          |  data fetching         |
 | firebase             |  authentication        |
+| storybook            |  Testing               |
 
 ## REFERENCES :book:
 1. https://readwriteexercise.com/posts/setting-up-create-react-app-vs-code-eslint-prettier/

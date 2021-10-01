@@ -10,6 +10,21 @@ const Template = (args: any) => <Button {...args}>Click me</Button>;
 
 export const Green: any = Template.bind({});
 
+export const Primary: any = Template.bind({});
+
+Primary.args = {
+  type: "ghost",
+  disabled: false,
+};
+
+export const LongLabel: any = Template.bind({});
+
+LongLabel.args = {
+  type: "primary",
+  disabled: false,
+  danger: true,
+};
+
 Green.args = {
   type: "primary",
   disabled: false,
