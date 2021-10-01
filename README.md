@@ -13,7 +13,7 @@
 | context api          |  state management      |
 | react query          |  data fetching         |
 | firebase             |  authentication        |
-| storybook            |  Testing               |
+| storybook            |  test components       |
 
 ## REFERENCES :book:
 1. https://readwriteexercise.com/posts/setting-up-create-react-app-vs-code-eslint-prettier/
