@@ -1,8 +1,9 @@
 ## BASIC COMMANDS :books:
 |     commands    |  description     |
 |-----------------|------------------|
-| yarn dev        | run dev server   |
+| yarn dev        | run dev server 🏃  |
 | yarn install    | install packages |
+| yarn storybook  | run storybook   🏃 |
 
 
 ## TECH STACKS 📦 
@@ -19,42 +20,11 @@
 3. https://nextjs.org/docs/advanced-features/custom-app
 4. https://swapi.dev/
 5. https://react-query.tanstack.com/
+6. https://dev.to/wonder2210/next-js-storybook-typescript-2021-guide-2ab4
 
 ## Page optimization
 1. Use defer for scripts
 2. Minify scripts and css
 
-// "babel": {
-  //   "env": {
-  //     "development": {
-  //       "presets": [
-  //         "next/babel"
-  //       ],
-  //       "plugins": [
-  //         [
-  //           "styled-components",
-  //           {
-  //             "ssr": true,
-  //             "displayName": true
-  //           }
-  //         ]
-  //       ]
-  //     },
-  //     "production": {
-  //       "presets": [
-  //         "next/babel"
-  //       ],
-  //       "plugins": [
-  //         [
-  //           "styled-components",
-  //           {
-  //             "ssr": true,
-  //             "displayName": false
-  //           }
-  //         ]
-  //       ]
-  //     }
-  //   }
-  // },
-  // "license": "MIT"
+
 
