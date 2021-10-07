@@ -26,10 +26,8 @@ const AuthProvider = ({ children }: IProps) => {
 
   useEffect(() => {
     const unsubscribe = auth?.onAuthStateChanged((user: any) => {
-      if (user) {
-        setCurrentUser(user);
-        setLoading(false);
-      }
+      user && setCurrentUser(user);
+      setLoading(false);
     });
     return () => unsubscribe;
   }, []);
