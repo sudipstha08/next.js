@@ -50,7 +50,7 @@ const ForgotPassword = () => {
       notification.success({
         message: "Check your inbox",
       });
-    } catch (error) {
+    } catch (error: any) {
       setLoading(false);
       Sentry.captureException("Error: ", error);
       notification.error({

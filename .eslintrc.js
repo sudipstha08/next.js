@@ -15,6 +15,7 @@ module.exports = {
     'prettier/@typescript-eslint',
     'plugin:prettier/recommended',
     'plugin:cypress/recommended',
+    'plugin:@next/next/recommended',
     'prettier',
     // '@next/eslint-plugin-next"',
     // "plugin:@next/next/recommended"
@@ -61,5 +62,4 @@ module.exports = {
     // 'next/google-font-display': 2,
     // "next/no-typos": 2
   },
-  plugins: ['prettier', "@typescript-eslint"],
 };
