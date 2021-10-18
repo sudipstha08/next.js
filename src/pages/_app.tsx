@@ -61,6 +61,10 @@ const App = ({ Component, pageProps }: AppProps) => {
     <>
       <Head>
         <title>NEXT | HOME</title>
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
+        />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Anton&family=Staatliches&display=swap"
