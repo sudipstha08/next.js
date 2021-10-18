@@ -8,7 +8,7 @@ import styled from "styled-components";
 import axios from "axios";
 import * as Sentry from "@sentry/browser";
 import { API } from "../../utils/api";
-import { Button } from "../../store/components";
+import { Button } from "../../components";
 
 const MainContainer = styled.div`
   margin-bottom: 50px;
@@ -122,7 +122,7 @@ const AxiosCC: React.FC = () => {
           axios.get("https://jsonplaceholder.typicode.com/todos?_limit=5"),
           axios.get("https://jsonplaceholder.typicode.com/posts?_limit=5"),
         ])
-        .then(axios.spread((todos, posts) => setData(todos)));
+        .then(axios.spread((todos, _) => setData(todos)));
     } catch (e) {
       Sentry.captureMessage("Something went wrong");
       console.error("Error", e);
@@ -152,13 +152,13 @@ const AxiosCC: React.FC = () => {
 
   // TRANSFORMING REQUEST AND RESPONSES
   const transformResponse = () => {
-    const options = {
+    const options: any = {
       method: "post",
       url: "https://jsonplaceholder.typicode.com/todos",
       data: {
         title: "Hello World",
       },
-      transformResponse: axios?.defaults?.transformResponse?.concat(
+      transformResponse: [axios?.defaults?.transformResponse]?.concat(
         (data: any) => {
           data.title = data.title.toUpperCase();
           return data;
@@ -183,7 +183,7 @@ const AxiosCC: React.FC = () => {
       if (res) {
         setData(res);
       }
-    } catch (e) {
+    } catch (e: any) {
       if (e.response) {
         // Server responded with a status other than 200 range
         console.log(e.response.data);
@@ -220,7 +220,7 @@ const AxiosCC: React.FC = () => {
       if (res) {
         setData(res);
       }
-    } catch (e) {
+    } catch (e: any) {
       if (e.response) {
         // Server responded with a status other than 200 range
         console.log(e.response.data);

@@ -16,25 +16,25 @@ const StyledButton = styled(Button)`
   background: ${(props: IProps) => (props.$primary ? "green" : "red")};
 `;
 
-const StyledTest = styled.div.attrs({
-  style: (props: any) => ({
-    background: props.random ? "blue" : " green",
-  }),
-})`
-  height: 100px;
-  width: 200px;
-  /* background: ${(props) => (props.$random ? "green" : "red")}; */
-`;
+// const StyledTest = styled.div.attrs({
+//   style: (props: any) => ({
+//     background: props.random ? "blue" : " green",
+//   }),
+// })`
+//   height: 100px;
+//   width: 200px;
+//   /* background: ${(props) => (props.$random ? "green" : "red")}; */
+// `;
 
-const Box = styled.div.attrs({
-  style: (props: any) => ({
-    background: props.luminosity ? "blue" : "green",
-  }),
-})`
-  margin: 2rem auto;
-  width: 360px;
-  height: 360px;
-`;
+// const Box = styled.div.attrs({
+//   style: (props: any) => ({
+//     background: props.luminosity ? "blue" : "green",
+//   }),
+// })`
+//   margin: 2rem auto;
+//   width: 360px;
+//   height: 360px;
+// `;
 
 const Test: React.FC<IProps> = () => {
   return (
@@ -43,7 +43,7 @@ const Test: React.FC<IProps> = () => {
       <StyledButton>Test</StyledButton>
 
       {/* <StyledTest random>hhhhhhh</StyledTest> */}
-      <Box luminosity={+true}>fdfdfdf</Box>
+      {/* <Box luminosity={+true}>fdfdfdf</Box> */}
     </div>
   );
 };

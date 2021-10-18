@@ -2,8 +2,8 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import * as Sentry from "@sentry/browser";
 import { User } from "../../interfaces";
 import { sampleUserData } from "../../utils/sample-data";
-import Layout from "../../store/components/Layout";
-import ListDetail from "../../store/components/ListDetail";
+import Layout from "../../components/Layout";
+import ListDetail from "../../components/ListDetail";
 
 type Props = {
   item?: User;
@@ -55,7 +55,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     // By returning { props: item }, the StaticPropsDetail component
     // will receive `item` as a prop at build time
     return { props: { item } };
-  } catch (err) {
+  } catch (err: any) {
     Sentry.captureMessage("Error: ", err);
     return { props: { errors: err.message } };
   }

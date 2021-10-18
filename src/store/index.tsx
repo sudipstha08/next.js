@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notification } from "antd";
 import Router from "next/router";
 import * as Sentry from "@sentry/browser";
-import { useAuth } from "../store/AuthContext";
+import { useAuth } from "./AuthContext";
 import { PrivateRoute, PhoneNumber } from "../components";
 import Layout from "../components/Layout";
 
@@ -73,7 +73,7 @@ const IndexPage = () => {
       if (res) {
         Router.push("/login");
       }
-    } catch (error) {
+    } catch (error: any) {
       Sentry.captureMessage("Error: ", error);
       notification.error({
         message: "Failed to logout",

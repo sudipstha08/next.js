@@ -4,7 +4,7 @@ import { GetStaticProps, GetStaticPaths } from "next";
 // import path from 'path'
 // const fs = require('fs')
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   // const txt = fs.readFileSync(
   //   path.join(process.cwd(), 'public/robots.txt'),
   //   'utf8',

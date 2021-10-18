@@ -65,7 +65,7 @@ const SignUpPage = () => {
       });
       formik.resetForm();
       router.push("/login");
-    } catch (error) {
+    } catch (error: any) {
       setLoading(false);
       Sentry.withScope(function (scope) {
         scope.setLevel(Sentry.Severity.Critical);

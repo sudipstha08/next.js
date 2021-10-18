@@ -54,7 +54,7 @@ const LoginPage = () => {
       setLoading(true);
       await login(email, password);
       router.push("/");
-    } catch (error) {
+    } catch (error: any) {
       setLoading(false);
       notification.error({
         message: "Failed to sign in. Please try again later",

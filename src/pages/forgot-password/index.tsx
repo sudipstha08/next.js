@@ -7,7 +7,7 @@ import * as Sentry from "@sentry/browser";
 import { UserOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 import { useAuth } from "../../store/AuthContext";
-import { TextField, Button } from "../../store/components";
+import { TextField, Button } from "../../components";
 
 const Container = styled.section`
   display: grid;

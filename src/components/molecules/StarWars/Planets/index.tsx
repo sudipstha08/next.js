@@ -17,17 +17,13 @@ const Planets = () => {
   const [page, setPage] = useState(1);
   const fetchPlanets = async ({ queryKey }: any) => {
     console.log("params", queryKey);
-    const [_key, params, page] = queryKey;
+    const [page] = queryKey;
     const response = await SWAPI_API.get<IResponse>(`/planets?page=${page}`);
     return response.data;
   };
-  const { data, status, refetch } = useQuery(
-    ["planets", "params1, params2", page],
-    fetchPlanets,
-    {
-      keepPreviousData: false,
-    },
-  );
+  const { data, status, refetch } = useQuery(["planets", page], fetchPlanets, {
+    keepPreviousData: false,
+  });
   const getState = (status: string) => {
     if (status === "loading") {
       return <Loader size="large" className="loader" />;

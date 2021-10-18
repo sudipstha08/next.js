@@ -7,6 +7,7 @@ class CustomDocument extends Document {
       <Html>
         <Head>
           <meta name="description" content="Next JS" />
+          <link rel="manifest" href="manifest.json" />
         </Head>
         <body>
           <Main />

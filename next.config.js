@@ -1,4 +1,6 @@
-module.exports = {
+const withPWA = require("next-pwa");
+
+module.exports = withPWA({
   async rewrites() {
     return [
       {
@@ -7,4 +9,10 @@ module.exports = {
       },
     ];
   },
-};
+  pwa: {
+    dest: "public",
+    register: true,
+    skipWaiting: true,
+    disable: process.env.NODE_ENV === "development",
+  },
+});

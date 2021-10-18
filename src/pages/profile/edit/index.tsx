@@ -57,7 +57,7 @@ const UpdateProfile = () => {
       notification.success({
         message: "Profile updated successfully",
       });
-    } catch (error) {
+    } catch (error: any) {
       setLoading(false);
       Sentry.captureException("Error: ", error);
       notification.error({

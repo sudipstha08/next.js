@@ -2,14 +2,14 @@ import { useEffect } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 
-const Button = styled(Link).attrs({
+const Button: any = styled(Link).attrs({
   width: (props: any) => props.width || "100%",
 })`
   display: block;
   width: ${(props) => props.width};
   text-align: center;
   color: #fff;
-  background-color: ${(props) => (props.gray ? "#bababa" : "#ea352d")};
+  background-color: ${(props: any) => (props.gray ? "#bababa" : "#ea352d")};
 `;
 
 export default function Search() {
