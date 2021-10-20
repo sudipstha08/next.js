@@ -11,6 +11,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuild: false,
   },
+  images: {
+    domains: ["unsplash.com"],
+  },
   // webpack5: false,
   webpack: (config, { isServer }) => {
     if (process.env.NODE_ENV === "production") {

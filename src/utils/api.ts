@@ -17,7 +17,7 @@ export const SWAPI_API = axios.create({
   baseURL: process.env.NEXT_PUBLIC_SWAPI_URL,
 });
 
-axios.interceptors.request.use(
+API.interceptors.request.use(
   (config: AxiosRequestConfig) => {
     console.log(
       `${config?.method?.toUpperCase()} request sent to ${
@@ -30,3 +30,11 @@ axios.interceptors.request.use(
     Promise.reject(error);
   },
 );
+
+export const IMGUR_API = axios.create({
+  baseURL: "https://api.imgur.com/3/upload",
+});
+
+IMGUR_API.defaults.headers.common[
+  "Authorization"
+] = `Client-ID ${process.env.IMGUR_CLIENT_ID}`;
