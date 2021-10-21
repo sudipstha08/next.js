@@ -94,7 +94,7 @@ const ReactImageCrop = () => {
         onComplete={(c) => setCompletedCrop(c)}
         disabled={false}
         locked={true}
-        imageStyle={{ height: 400 }}
+        imageStyle={{ width: 700, objectFit: "contain" }}
       />
       <div>
         <canvas
