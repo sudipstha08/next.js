@@ -162,7 +162,16 @@ const FileUpload: React.FC<ImageUploadProps> = (props) => {
             width: "100%",
           }}
         />
-        <ImgCrop minZoom={1} maxZoom={10} aspect={1 / 1.2}>
+        <ImgCrop
+          minZoom={1}
+          maxZoom={10}
+          aspect={1 / 1.2}
+          zoom={true}
+          quality={1}
+          cropperProps={{
+            crop: { x: 3, y: 6 },
+          }}
+        >
           <Upload
             showUploadList={false}
             beforeUpload={beforeUpload}
