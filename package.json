@@ -31,6 +31,7 @@
     "antd-img-crop": "^3.16.0",
     "apexcharts": "^3.24.0",
     "axios": "^0.21.1",
+    "cropperjs": "^1.5.12",
     "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
     "eslint-plugin-cypress": "^2.11.2",
