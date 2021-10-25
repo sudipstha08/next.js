@@ -6,6 +6,8 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { useRouter } from "next/router";
 import * as Sentry from "@sentry/browser";
 import { Integrations } from "@sentry/tracing";
+import NProgress from "nprogress";
+import "nprogress/nprogress.css";
 import { AuthProvider } from "../store/AuthContext";
 import { isIE } from "../utils/isIE";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -57,6 +59,12 @@ const App = ({ Component, pageProps }: AppProps) => {
     }
   }, []);
 
+  router.events.on("routeChangeStart", () => {
+    NProgress.start();
+  });
+  router.events.on("routeChangeComplete", () => NProgress.done());
+  router.events.on("routeChangeError", () => NProgress.done());
+
   return (
     <>
       <Head>
@@ -66,21 +74,13 @@ const App = ({ Component, pageProps }: AppProps) => {
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
         />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Anton&family=Staatliches&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap"
-          rel="stylesheet"
-        ></link>
         <meta name="description" content="Next js research and documentation" />
         <script
           src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js"
           defer
         ></script>
         <script
-          // async
+          async
           custom-element="amp-fx-collection"
           src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"
         ></script>

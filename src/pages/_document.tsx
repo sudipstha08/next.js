@@ -62,6 +62,14 @@ class CustomDocument extends Document {
             sizes="167x167"
             href="/icons/touch-icon-ipad-retina.png"
           />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Anton&family=Staatliches&display=swap"
+            rel="stylesheet"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap"
+            rel="stylesheet"
+          ></link>
         </Head>
         <body>
           <Main />
