@@ -91,20 +91,32 @@ const ReactImageCrop: FC<IProps> = ({ width = "500px", height }) => {
     if (!crop || !canvas) {
       return;
     }
-    await canvas.toBlob(
-      (blob) => {
-        const previewUrl = window.URL.createObjectURL(blob);
+    const img = canvas.toDataURL("image/png");
+    console.log("images", img);
+    // return new Promise((resolve, reject) => {
+    //   canvas.toBlob(
+    //     (blob) => {
+    //       blob.name = "ddd";
+    //       resolve(blob);
+    //     },
+    //     "image/jpeg",
+    //     1,
+    //   );
+    // });
+    // await return canvas.toBlob(
+    //   (blob) => {
+    //     const previewUrl = window.URL.createObjectURL(blob);
 
-        const anchor = document.createElement("a");
-        anchor.download = "cropPreview.png";
-        anchor.href = URL.createObjectURL(blob);
-        anchor.click();
+    //     const anchor = document.createElement("a");
+    //     anchor.download = "cropPreview.png";
+    //     anchor.href = URL.createObjectURL(blob);
+    //     anchor.click();
 
-        window.URL.revokeObjectURL(previewUrl);
-      },
-      "image/png",
-      1,
-    );
+    //     window.URL.revokeObjectURL(previewUrl);
+    //   },
+    //   "image/png",
+    //   1,
+    // );
     setIsModalVisible(false);
   };
 
