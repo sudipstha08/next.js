@@ -60,6 +60,7 @@ const ReactImageCrop: FC<IProps> = ({ width = "500px", height }) => {
   const imageElement = createRef<any>();
   const [file, setFile] = useState<any>(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  imageDestination && setFile(imageDestination);
 
   const onSelectFile = async (e) => {
     if (e.file.status === "done") {

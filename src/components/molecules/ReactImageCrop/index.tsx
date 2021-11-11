@@ -61,6 +61,7 @@ const ReactImageCrop: FC<IProps> = ({ width = "500px", height }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const [file, setFile] = useState<any>(null);
+  setFile("");
   const imgRef = useRef(null);
   const previewCanvasRef = useRef(null);
   const [crop, setCrop] = useState<any>({

@@ -12,6 +12,8 @@
 
 # production
 /build
+/out/
+.firebase
 
 # misc
 .DS_Store
@@ -22,6 +24,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+firebase-debug.log*
 yarn.lock
 
 # local env files

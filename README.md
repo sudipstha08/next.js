@@ -4,6 +4,9 @@
 | `yarn dev`      | run dev server 🏃  |
 | `yarn install`  | install packages   |
 | `yarn storybook`| run storybook   🏃 |
+| `firebase login`|   🏃 |
+| `firebase init`|   🏃 |
+| `firebase deploy --only hosting`|   🏃 |
 
 
 ## TECH STACKS 📦 
