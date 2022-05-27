@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Button } from "antd";
+import React, { useEffect } from "react";
 
 // FILTERING COMPONENT
 // const StyledButton = styled(({ primary, ...props }) => <Button {...props} />)`
@@ -36,7 +37,25 @@ const StyledButton = styled(Button)`
 //   height: 360px;
 // `;
 
+const Meeting = require("google-meet-api").meet;
+
 const Test: React.FC<IProps> = () => {
+  useEffect(() => {
+    Meeting({
+      clientId:
+        "385089649256-nj0ad0qlmbtdg40rinjkp5s8nss4dmmv.apps.googleusercontent.com",
+      clientSecret: "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",
+      refreshToken: "",
+      date: "2021/12/1",
+      time: "15:30",
+      summary: "Test",
+      location: "kathmandu",
+      description: "This is a test app",
+    }).then(function (result) {
+      console.log(result);
+    });
+  }, []);
+
   return (
     <div>
       <StyledButton $primary>Test Console</StyledButton>
