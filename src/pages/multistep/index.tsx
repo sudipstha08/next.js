@@ -1,7 +1,7 @@
+import { message } from "antd";
 import React, { useState, FormEvent } from "react";
-import { AddressForm, UserForm } from "../../components";
+import { AddressForm, UserForm, AccountForm } from "../../components";
 import { useMultiStepForm } from "../../components/hooks";
-import { AccountForm } from "../../components/organisms/AccountForm";
 
 type FormData = {
   firstName: string;
@@ -46,7 +46,8 @@ const MultiStepForm = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    next();
+    if (!isLastStep) return next();
+    message.success("Form submitted");
   };
 
   return (
@@ -58,7 +59,7 @@ const MultiStepForm = () => {
         margin: "1rem",
         border: "1px solid blue",
         borderRadius: ".5rem",
-        width: "500px",
+        maxWidth: "max-content",
       }}
     >
       <form onSubmit={handleSubmit}>
