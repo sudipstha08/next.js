@@ -5,7 +5,7 @@ const useMultiStepForm = (steps: ReactElement[]) => {
 
   const next = () => {
     setCurrentStepIdx((idx) => {
-      if (idx < steps.length - 1) return idx;
+      if (idx >= steps.length - 1) return idx;
       return idx + 1;
     });
   };
@@ -20,6 +20,7 @@ const useMultiStepForm = (steps: ReactElement[]) => {
   const goto = (idx: number) => {
     setCurrentStepIdx(idx);
   };
+
   return {
     currentStepIdx,
     step: steps[currentStepIdx],

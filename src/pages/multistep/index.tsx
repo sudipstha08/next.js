@@ -1,10 +1,53 @@
-import React from "react";
+import React, { useState, FormEvent } from "react";
+import { AddressForm, UserForm } from "../../components";
 import { useMultiStepForm } from "../../components/hooks";
+import { AccountForm } from "../../components/organisms/AccountForm";
+
+type FormData = {
+  firstName: string;
+  lastName: string;
+  age: string;
+  street: string;
+  city: string;
+  state: string;
+  zip: string;
+  email: string;
+  password: string;
+};
+
+const INITIAL_DATA = {
+  firstName: "",
+  lastName: "",
+  age: "",
+  street: "",
+  city: "",
+  state: "",
+  zip: "",
+  email: "",
+  password: "",
+};
 
 const MultiStepForm = () => {
-  const steps = [];
+  const [formData, setFormData] = useState<FormData>(INITIAL_DATA);
+
+  const updateFields = (fields: Partial<FormData>) => {
+    setFormData((prevValues) => {
+      return { ...prevValues, ...fields };
+    });
+  };
+
+  const steps = [
+    <UserForm key={0} {...formData} updateFields={updateFields} />,
+    <AddressForm key={2} {...formData} updateFields={updateFields} />,
+    <AccountForm key={3} {...formData} updateFields={updateFields} />,
+  ];
   const { currentStepIdx, step, isFirstStep, isLastStep, back, next } =
     useMultiStepForm(steps);
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    next();
+  };
 
   return (
     <div
@@ -18,7 +61,7 @@ const MultiStepForm = () => {
         width: "500px",
       }}
     >
-      <form>
+      <form onSubmit={handleSubmit}>
         <div style={{ position: "absolute", top: ".5rem", right: ".5rem" }}>
           {currentStepIdx + 1} / {steps.length}
         </div>
@@ -31,10 +74,12 @@ const MultiStepForm = () => {
             justifyContent: "flex-end",
           }}
         >
-          {!isFirstStep && <button onClick={back}>Back</button>}
-          <button type="button" onClick={next}>
-            {isLastStep ? "Finish" : "Next"}
-          </button>
+          {!isFirstStep && (
+            <button type="button" onClick={back}>
+              Back
+            </button>
+          )}
+          <button type="submit">{isLastStep ? "Finish" : "Next"}</button>
         </div>
       </form>
     </div>
