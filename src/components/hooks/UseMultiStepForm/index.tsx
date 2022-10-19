@@ -1,7 +1,18 @@
-import { useState, ReactElement } from "react";
+import { useState, ReactElement, ReactNode } from "react";
 
-const useMultiStepForm = (steps: ReactElement[]) => {
-  const [currentStepIdx, setCurrentStepIdx] = useState(0);
+type IReturnType = {
+  currentStepIdx: number;
+  step: ReactNode;
+  isFirstStep: boolean;
+  isLastStep: boolean;
+  steps: ReactNode[];
+  goto: (idx: number) => void;
+  next: () => void;
+  back: () => void;
+};
+
+const useMultiStepForm = (steps: ReactElement[]): IReturnType => {
+  const [currentStepIdx, setCurrentStepIdx] = useState<number>(0);
 
   const next = () => {
     setCurrentStepIdx((idx) => {
