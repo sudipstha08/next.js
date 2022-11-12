@@ -3,7 +3,7 @@ import Link from "next/link";
 import Layout from "../../components/Layout";
 import styles from "./styles.module.scss";
 import { EmailShareButton, FacebookShareButton } from "react-share";
-import { LineShare, MailTo, Timer } from "../../components";
+import { LineShare, MailTo, Timer, useCopyToClipBoard } from "../../components";
 
 const AboutPage = () => {
   // const [shareCount, setShareCount] = useState(0);
@@ -25,8 +25,11 @@ const AboutPage = () => {
   //   }
   // };
 
+  const { ToolTip } = useCopyToClipBoard("fdfd");
+
   return (
     <Layout title="About | Next.js + TypeScript Example">
+      <ToolTip>{"Copy ME"}</ToolTip>
       <h1>About</h1>
       <p>This is the about pagesss</p>
       <p>
