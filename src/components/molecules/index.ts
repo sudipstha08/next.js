@@ -10,3 +10,4 @@ export { ReactCalendar } from "./ReactCalendar";
 export { FileUpload } from "./FileUpload";
 export { ReactImageCrop } from "./ReactImageCrop";
 // export { CropperJs } from "./CropperJs";
+export { VerificationCode } from "./VerificationCode";
