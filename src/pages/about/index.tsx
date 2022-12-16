@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import Link from "next/link";
-import Layout from "../../components/molecules/Layout/Layout";
+import Layout from "../../components/molecules/Layout";
 import styles from "./styles.module.scss";
 import { EmailShareButton, FacebookShareButton } from "react-share";
 import { LineShare, MailTo, Timer, useCopyToClipBoard } from "../../components";
