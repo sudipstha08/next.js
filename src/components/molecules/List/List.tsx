@@ -1,6 +1,6 @@
 import * as React from "react";
-import ListItem from "./ListItem";
-import { User } from "../interfaces";
+import { ListItem } from "../ListItem";
+import { User } from "../../../interfaces";
 
 type Props = {
   items: User[];
@@ -16,4 +16,4 @@ const List = ({ items }: Props) => (
   </ul>
 );
 
-export default List;
+export { List };

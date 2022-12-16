@@ -33,7 +33,27 @@ export const options = {
   },
 };
 
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
+const labels = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "fsdf",
+  "fsdfdsf",
+  "fsdfs",
+  "fsdfdsf",
+  "fsdfdsffsd1",
+  "fsdfdsffsd2",
+  "fsdfdsffsd3",
+  "fsdfdsffsd4",
+  "fsdfdsffsd5",
+  "fsdfdsffsd6",
+  "fsd7",
+  "fsffsd",
+];
 
 export const data = {
   labels,
@@ -43,16 +63,10 @@ export const data = {
       data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
       backgroundColor: "rgba(255, 99, 132, 0.5)",
     },
-    {
-      label: "Dataset 2",
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      backgroundColor: "rgba(53, 162, 235, 0.5)",
-    },
   ],
 };
 
 const BarChart = () => {
-  console.log("FAKER====>", faker.datatype.number({ min: 0, max: 1000 }));
   return <Bar options={options} data={data} />;
 };
 
