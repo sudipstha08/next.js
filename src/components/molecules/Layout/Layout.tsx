@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Head from "next/head";
-import { Header } from "./molecules/Header";
+import { Header } from "../Header";
 
 type Props = {
   children?: React.ReactNode;
@@ -40,4 +40,4 @@ const Layout = ({ children, title = "This is the default title" }: Props) => (
   </div>
 );
 
-export default Layout;
+export { Layout };

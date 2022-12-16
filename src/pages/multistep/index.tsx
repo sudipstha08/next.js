@@ -1,7 +1,7 @@
 import { message } from "antd";
 import React, { useState, FormEvent } from "react";
 import { AddressForm, UserForm, AccountForm } from "../../components";
-import { useMultiStepForm } from "../../components/hooks";
+import { useMultiStepForm } from "../../hooks";
 
 type FormData = {
   firstName: string;
