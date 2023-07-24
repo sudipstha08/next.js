@@ -5,10 +5,10 @@ const colors = {
   tomato: "Tomato",
   lightblue: "#17a2b8",
   dark: "#343a40",
-};
+} as const;
 
 const fonts = {
   ubuntu: "Ubuntu, sans-serif",
-};
+} as const;
 
 export { colors, fonts };

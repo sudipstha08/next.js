@@ -1,9 +1,10 @@
+# Next JS
 ## BASIC COMMANDS :books:
 
-| commands                         | description       |
-| -------------------------------- | ----------------- |
+| commands                         | description      |
+| -------------------------------- | ---------------- |
 | `yarn start-dev`                 | run dev server 🏃 |
-| `yarn install`                   | install packages  |
+| `yarn install`                   | install packages |
 | `yarn storybook`                 | run storybook 🏃  |
 | `firebase login`                 | 🏃                |
 | `firebase init`                  | 🏃                |
