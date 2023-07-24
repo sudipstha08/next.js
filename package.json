@@ -2,7 +2,7 @@
   "name": "with-typescript",
   "version": "1.0.0",
   "scripts": {
-    "start-dev": "next dev -p 3005",
+    "start-dev": "next dev -p 3006",
     "build": "NODE_ENV=production next build",
     "export": "next export",
     "start": "next start",
@@ -52,11 +52,11 @@
     "next-pwa": "^5.3.1",
     "nprogress": "^0.2.0",
     "optimize-css-assets-webpack-plugin": "^6.0.0",
-    "react": "^17.0.2",
+    "react": "^18.2.0",
     "react-apexcharts": "^1.3.7",
     "react-calendar": "^3.4.0",
     "react-chartjs-2": "^5.0.1",
-    "react-dom": "^17.0.2",
+    "react-dom": "^18.2.0",
     "react-draggable": "^4.4.3",
     "react-grid-layout": "^1.2.2",
     "react-i18next": "^11.12.0",
@@ -71,6 +71,7 @@
     "styled-components": "^5.3.0",
     "terser-webpack-plugin": "^5.2.4",
     "typescript": "^4.4.4",
+    "wavesurfer.js": "^7.0.6",
     "yup": "^0.32.8"
   },
   "devDependencies": {
