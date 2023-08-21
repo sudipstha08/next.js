@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
+    "@fingerprintjs/fingerprintjs": "^4.0.1",
     "@firebase/auth-types": "^0.10.2",
     "@next/eslint-plugin-next": "^11.1.2",
     "@sentry/browser": "^6.5.1",
