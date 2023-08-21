@@ -1,5 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
-import { auth, firebase } from "../../firebase";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
+  onAuthStateChanged,
+} from "firebase/auth";
+import { auth } from "../../firebase";
 import { Loader } from "../components";
 
 interface IProps {
@@ -7,7 +13,7 @@ interface IProps {
 }
 
 interface ContextProps {
-  currentUser?: firebase.User | null;
+  currentUser?: any;
   signup?: (email: string, password: string) => void;
   login?: (email: string, password: string) => void;
   updateEmail?: any;
@@ -25,19 +31,21 @@ const AuthProvider = ({ children }: IProps) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = auth?.onAuthStateChanged((user: any) => {
-      user && setCurrentUser(user);
-      setLoading(false);
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        user && setCurrentUser(user as any);
+        setLoading(false);
+      }
     });
-    return () => unsubscribe;
+    return () => unsubscribe();
   }, []);
 
   const signup = (email: string, password: string) => {
-    auth?.createUserWithEmailAndPassword(email, password);
+    createUserWithEmailAndPassword(auth, email, password);
   };
 
   const login = (email: string, password: string) => {
-    return auth.signInWithEmailAndPassword(email, password);
+    return signInWithEmailAndPassword(auth, email, password);
   };
 
   const logout = () => {
@@ -45,7 +53,7 @@ const AuthProvider = ({ children }: IProps) => {
   };
 
   const resetPassword = (email: string) => {
-    return auth.sendPasswordResetEmail(email);
+    return sendPasswordResetEmail(auth, email);
   };
 
   const updateEmail = (email: string) => {

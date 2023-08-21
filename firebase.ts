@@ -1,7 +1,6 @@
-import firebase from "firebase/app";
-import "firebase/auth";
-
-let app: any, auth: any;
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore/lite";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -13,12 +12,10 @@ const firebaseConfig = {
 } as const;
 
 // Initialize Firebase
-if (!firebase.apps.length) {
-  app = firebase.initializeApp(firebaseConfig);
-  auth = app.auth();
-} else {
-  // if already initialized, use this one
-  firebase.app();
-}
+const app = initializeApp(firebaseConfig);
 
-export { app, auth, firebase };
+const auth = getAuth(app);
+
+const db = getFirestore(app);
+
+export { app, db, auth };

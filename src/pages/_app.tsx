@@ -1,7 +1,6 @@
 // Next.js uses the App component to initialize pages
 import React, { useEffect } from "react";
 import Head from "next/head";
-import { AppProps } from "next/app";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { useRouter } from "next/router";
 import * as Sentry from "@sentry/browser";
@@ -11,7 +10,6 @@ import "nprogress/nprogress.css";
 import { AuthProvider } from "../store/AuthContext";
 import { isIE } from "../utils/isIE";
 import "mapbox-gl/dist/mapbox-gl.css";
-import "antd/dist/antd.css";
 import { GlobalStyles } from "../styles/global-styles";
 /**
  *To prevent TypeScript errors on the css prop on arbitrary elements
@@ -51,7 +49,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-const App = ({ Component, pageProps }: AppProps) => {
+const App = ({ Component, pageProps }) => {
   const router = useRouter();
   useEffect(() => {
     if (isIE()) {

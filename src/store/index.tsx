@@ -6,7 +6,7 @@ import Router from "next/router";
 import * as Sentry from "@sentry/browser";
 import { useAuth } from "./AuthContext";
 import { PrivateRoute, PhoneNumber } from "../components";
-import Layout from "../components/molecules/Layout";
+import { Layout } from "../components/molecules/Layout";
 
 const IndexPage = () => {
   const [username, setUsername] = useState<string>("");
