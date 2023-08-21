@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
 import Link from "next/link";
-import Layout from "../../components/molecules/Layout";
-import styles from "./styles.module.scss";
+import { Layout } from "../../components/molecules/Layout";
 import { EmailShareButton, FacebookShareButton } from "react-share";
-import { LineShare, MailTo, Timer, useCopyToClipBoard } from "../../components";
+import { LineShare, MailTo, Timer } from "../../components";
+import { useCopyToClipBoard } from "../../hooks";
 
 const AboutPage = () => {
   // const [shareCount, setShareCount] = useState(0);
@@ -33,18 +33,14 @@ const AboutPage = () => {
       <h1>About</h1>
       <p>This is the about pagesss</p>
       <p>
-        <Link href="/">
-          <a className={styles.red}>Go home</a>
-        </Link>
+        <Link href="/">Go home</Link>
         <a
           target="_blank"
           href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=sudipstha08@gmail.com&body=my-text"
         >
           Click here to email
         </a>
-        <Link href="/about/aboutme">
-          <a className={styles.red}>Go to about page</a>
-        </Link>
+        <Link href="/about/aboutme">Go to about page</Link>
         <MailTo
           email="sudipstha08@gmail.com"
           subject="Test"
@@ -69,14 +65,14 @@ const AboutPage = () => {
         // mediaplaybackrequiresuseraction="false"
       >
         Email Share
-      </EmailShareButton>{" "}
+      </EmailShareButton>
       <LineShare
         // quote="Facebook"
         // hashtag="Hello"
         url="https://www.npmjs.com/package/angular-social-plugins"
       >
         Line Share
-      </LineShare>{" "}
+      </LineShare>
       <a
         href={`mailto:piotr@mailtrap.io,john@mailtrap.io,kate@mailtrap.io?subject=Give%20me%20all%20your%20bitcoins&body=Here%20are%20my%20parents'%20credit%20card%20numbers%3A%0D%0A%0D%0ACheers%2C%0D%0AHappy%20Customer`}
       >

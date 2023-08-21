@@ -28,7 +28,7 @@ const useAuth = () => {
 
 const AuthProvider = ({ children }: IProps) => {
   const [currentUser, setCurrentUser] = useState<ContextProps>();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {

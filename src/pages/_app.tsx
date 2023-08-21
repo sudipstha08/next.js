@@ -78,7 +78,7 @@ const App = ({ Component, pageProps }) => {
         <script
           src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js"
           defer
-        ></script>
+        />
         {/* <script
           async
           custom-element="amp-fx-collection"
