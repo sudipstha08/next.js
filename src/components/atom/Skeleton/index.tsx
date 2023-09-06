@@ -13,6 +13,7 @@ interface ISkeletonLoader extends SkeletonProps {
   avatarShape: AvatarShapeType;
   active: boolean;
   block: boolean;
+  type?: "primary";
 }
 
 const SkeletonLoader: FC<ISkeletonLoader> = ({
@@ -21,8 +22,35 @@ const SkeletonLoader: FC<ISkeletonLoader> = ({
   buttonShape,
   avatarShape,
   block,
+  type,
   ...rest
 }) => {
+  if (type === "primary") {
+    return (
+      <div
+        style={{
+          width: "fit-content",
+          textAlign: "center",
+          border: "1px solid blue",
+          padding: "10px",
+        }}
+      >
+        <Skeleton.Avatar
+          active={active}
+          size={"large"}
+          shape={avatarShape}
+          style={{ width: "100px", height: "100px" }}
+        />
+        <br />
+        <br />
+        <Skeleton.Input
+          active={active}
+          size={size}
+          style={{ minWidth: "100px", width: "100px" }}
+        />
+      </div>
+    );
+  }
   return (
     <>
       <Space>
