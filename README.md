@@ -31,5 +31,6 @@
 5. https://react-query.tanstack.com/
 6. https://dev.to/wonder2210/next-js-storybook-typescript-2021-guide-2ab4
 7. https://fakerjs.dev/guide/upgrading.html
+8. https://commitlint.js.org/#/guides-local-setup?id=install-commitlint
 
 
