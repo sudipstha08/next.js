@@ -14,7 +14,8 @@
     "format": "eslint -c .eslintrc.js --ignore-path .eslintignore --fix",
     "git-add": "git add .",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "typecheck": "tsc-files --noEmit"
   },
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
@@ -102,10 +103,16 @@
     "prettier": "^2.2.1"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
+    "*.{js,jsx}": [
       "yarn stylelint",
       "yarn format",
-      "git add"
+      "git-add"
+    ],
+    "*.{ts,tsx}": [
+      "yarn typecheck",
+      "yarn stylelint",
+      "yarn format",
+      "git-add"
     ]
   },
   "pre-commit": [
