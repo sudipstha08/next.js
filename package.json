@@ -1,6 +1,8 @@
 {
   "name": "with-typescript",
   "version": "1.0.0",
+  "packageManager": "yarn@1.22.19",
+  "license": "MIT",
   "scripts": {
     "start-dev": "next dev -p 3006",
     "build": "NODE_ENV=production next build",
@@ -15,7 +17,8 @@
     "git-add": "git add .",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "typecheck": "tsc-files --noEmit"
+    "typecheck": "tsc-files --noEmit",
+    "setup": "./bin/setup.sh"
   },
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
