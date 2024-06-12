@@ -162,30 +162,22 @@ const FileUpload: React.FC<ImageUploadProps> = (props) => {
             width: "100%",
           }}
         />
-        <ImgCrop
-          minZoom={1}
-          maxZoom={10}
-          aspect={1}
-          zoom={true}
-          quality={1}
-          shape="round"
-          cropperProps={{
-            crop: { x: 3, y: 6 },
-          }}
-        >
-          <Upload
-            showUploadList={false}
-            beforeUpload={beforeUpload}
-            onChange={handleChange}
-            accept="image/*"
-          >
-            <div className="upload-btn">
-              <UploadOutlined />
+        <ImgCrop minZoom={1} maxZoom={10} aspect={1} quality={1}>
+          <>
+            <Upload
+              showUploadList={false}
+              beforeUpload={beforeUpload}
+              onChange={handleChange}
+              accept="image/*"
+            >
+              <div className="upload-btn">
+                <UploadOutlined />
+              </div>
+            </Upload>
+            <div className="delete-btn" onClick={handleDeleteClick}>
+              <DeleteOutlined />
             </div>
-          </Upload>
-          <div className="delete-btn" onClick={handleDeleteClick}>
-            <DeleteOutlined />
-          </div>
+          </>
         </ImgCrop>
       </Spin>
     </Wrapper>
